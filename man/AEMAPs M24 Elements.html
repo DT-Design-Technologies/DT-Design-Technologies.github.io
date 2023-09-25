@@ -1,0 +1,393 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>AEMAPs | R5: M24 Elements</title>
+<!-- --------------------------------------------------------------------------------------------------------------- -->
+<link href="resources/style.css" rel="stylesheet" type="text/css">
+<!-- --------------------------------------------------------------------------------------------------------------- -->
+<script async src="resources/include.json"></script>
+<script async src="resources/script.js"></script>
+</head>
+<!-- --------------------------------------------------------------------------------------------------------------- -->
+<body>
+<table><tr><td style="padding: 70px 50px;">																<!-- AIR 50 -->
+<!-- <img alt="cap"/> -->
+<!-- --------------------------------------------------------------------------------------------------------------- -->
+<table>
+<!-- hdr -->
+<div id="version">Оформление M24<br/>актуальность 08.2023</div>
+<!-- --------------------------------------------------------------------------------------------------------------- -->
+<!-- --------------------------------------------------------------------------------------------------------------- -->
+	<tr>
+		<td colspan="3"><a name="taglist"></a>
+			<ol style="counter-reset: list1 2;">
+				<li>
+					<h3>Доступные теги обработчиков TAG:</h3>
+				</li>
+			</ol>
+		</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td colspan="2">
+			<ol style="counter-reset: list1 3;"><ol>
+				<li><a name="regular"></a>
+					<h4>Типовые элементы</h4>
+					<ol style="--pw: 75px; --pw2: 110px; --tm: 1px;">
+						<li>
+							<div><table>
+								<tr>
+									<td><span class="param tag r">HEADER</span>:</td>
+									<td><img alt="header"/></td>
+									<td>
+										<p>Локальный заголовок карты (в&nbsp;рамках одного <span class="param tag A">OVER</span>).</p>
+										<ul>
+											<li>Структура согласно <a  href="AEMAPs User Guide.html#example">образцу</a>.</li>
+											<li>Поддерживает последовательное проявление внутри внешнего контейнера <span class="param tag A">GROUP</span> (заголовок&nbsp;и&nbsp;подзаголовки).</li>
+											<p class="warn-cmt">Порядок анимации определяется общим порядком сортировки внутри <span class="param tag A">GROUP</span> (<a href="AEMAPs User Guide.html#grouping">см.&nbsp;п.2.5</a>).</p>
+											<li>Рекомендуется выносить в&nbsp;плоскость экрана с&nbsp;помощью <span class="param tag A">INFO</span>.</li>
+										</ul>
+									</td>
+								</tr>
+							</table></div>
+						</li>
+						<li>
+							<div><table>
+								<tr>
+									<td><span class="param tag r">TINT</span>:</td>
+									<td><img alt="tint"/></td>
+									<td>
+										<p>Простой тинт.</p>
+										<p class="warn-cmt">(Любой объект с&nbsp;проявлением через мерцание).</p>
+										<ul>
+											<li>Геометрия не&nbsp;требуется.</li>
+										</ul>
+									</td>
+								</tr>
+							</table></div>
+						</li>
+						<li>
+							<div><table>
+								<tr>
+									<td><span class="param tag r">DOT</span>:</td>
+									<td><img alt="dot"/></td>
+									<td>
+										<p>Простая точка.</p>
+										<p class="warn-cmt">(Любой объект с&nbsp;проявлением по&nbsp;<span class="param spick">Scale</span>).</p>
+										<ul>
+											<li>Требуется <a href="AEMAPs User Guide.html#struct">геометрия</a> (предполагается центрально&#8209;симметричная).</li>
+											<li>Поддерживает внешние контейнеры <span class="param tag A">TICKET</span> и&nbsp;<span class="param tag a">ROUTE</span>.</li>
+										</ul>
+									</td>
+								</tr>
+							</table></div>
+						</li>
+						<li>
+							<div><table>
+								<tr>
+									<td><span class="param tag r">POINT</span>:</td>
+									<td><img alt="point"/></td>
+									<td>
+										<p>Точка с&nbsp;контуром или&nbsp;иконкой.</p>
+										<ul>
+											<li>
+												Требуется <a href="AEMAPs User Guide.html#struct">геометрия</a> (предполагается центрально&#8209;симметричная).
+												<p class="warn-cmt">Может иметь квадратную или&nbsp;круглую форму.</p>
+												<p></p>	
+											</li>
+											<li>Поддерживает внешние контейнеры <span class="param tag A">TICKET</span> и&nbsp;<span class="param tag a">ROUTE</span>.</li>
+										</ul>
+									</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td><img alt="point2"/></td>
+									<td>
+										<ul>
+											<li>Способ анимации определяется наличием в&nbsp;объекте дополнительных элементов.</li>
+										</ul>
+									</td>
+								</tr>
+							</table></div>
+						</li>
+						<li>
+							<div><table>
+								<tr>
+									<td><span class="param tag r">PUNCH</span>:</td>
+									<td><img alt="punch"/></td>
+									<td>
+										<p>Пунсон с&nbsp;концентрическими кольцами.</p>
+										<ul>
+											<li>Требуется <a href="AEMAPs User Guide.html#struct">геометрия</a> (предполагается центрально&#8209;симметричная).</li>
+											<li>Поддерживает внешние контейнеры <span class="param tag A">TICKET</span> и&nbsp;<span class="param tag a">ROUTE</span>.</li>
+										</ul>
+									</td>
+								</tr>
+							</table></div>
+						</li>
+						<li>
+							<div><table>
+								<tr>
+									<td><span class="param tag r">TITLE</span>:</td>
+									<td><img alt="title"/></td>
+									<td>
+										<p>Свободное текстовое обозначение без&nbsp;плашки или&nbsp;с&nbsp;прозрачной плашкой.</p>
+										<p class="warn-cmt">(Любой объект с&nbsp;проявлением по&nbsp;<span class="param spick">Opacity</span>).</p>
+									</td>
+								</tr>
+							</table></div>
+						</li>
+
+						<li>
+							<div><table>
+								<tr>
+									<td><span class="param tag r">CAPTION</span>:</td>
+									<td><img alt="caption"/></td>
+									<td>
+										<p>Описание, выезжающее из&nbsp;цели.</p>
+										<ul>
+											<li>Структура согласно <a  href="AEMAPs User Guide.html#example">образцу</a>. Указатель может отсутствовать.</li>
+											<li>Поддерживает внешний контейнер <span class="param tag A">TICKET</span>.</li>
+											<li>Описание без&nbsp;указателя поддерживает корректировку направления анимации. (Подробнее:&nbsp;<a class="cut" href="#caption"></a>.)</li>
+										</ul>
+									</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td colspan="2">
+										<div><a name="caption"></a>
+											Одно из&nbsp;осевых направлений <span class="param tag">L</span>/<span class="param tag">T</span>/<span class="param tag">R</span>/<span class="param tag">B</span> можно указать в&nbsp;теге идентификации <span class="param opt">VAR</span> (<span class="param sopt"><span class="param tag">CAPTION</span>_<span>L</span></span> или&nbsp;<span class="param sopt"><span class="param tag">CAPTION</span>_<span>L</span>-01</span>). По&nbsp;умолчанию в&nbsp;отсутствие указателя используется значение&nbsp;<span class="param tag">T</span>.
+										</div>
+									</td>
+								</tr>
+							</table></div>
+						</li>
+						<li>
+							<div><table>
+								<tr>
+									<td><span class="param tag r">VALUE</span>:</td>
+									<td><img alt="value"/></td>
+									<td>
+										<p>Добавочная инфоплашка, выезжающая из&#8209;под основной.</p>
+										<ul>
+											<li>Требуется <a href="AEMAPs User Guide.html#struct">геометрия</a> (предполагается прямоугольная).</li>
+											<li>Поддерживает внешний контейнер <span class="param tag A">TICKET</span>.</li>
+											<li>Поддерживает корректировку направления анимации. (Подробнее:&nbsp;<a class="cut" href="#value"></a>.)</li>
+										</ul>
+									</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td colspan="2">
+										<div><a name="value"></a>
+											Одно из&nbsp;осевых направлений <span class="param tag">L</span>/<span class="param tag">T</span>/<span class="param tag">R</span>/<span class="param tag">B</span> можно указать в&nbsp;теге идентификации <span class="param opt">VAR</span> (<span class="param sopt"><span class="param tag">VALUE</span>_<span>L</span></span> или&nbsp;<span class="param sopt"><span class="param tag">VALUE</span>_<span>L</span>-01</span>). По&nbsp;умолчанию используется значение&nbsp;<span class="param tag">B</span>.
+										</div>
+									</td>
+								</tr>
+
+							</table></div>
+						</li>
+						<li>
+							<div><table>
+								<tr>
+									<td><span class="param tag r">COUNTER</span>:</td>
+									<td><img alt="counter"/></td>
+									<td>
+										<p>Текстовый счётчик.</p>
+										<ul>
+											<li>Требуется единственный внутренний элемент с&nbsp;тегом <span class="param tag">TEXT</span>.</li>
+											<li>Текст должен содержать только цифры, точность счётчика определяется форматом указанного числа (<span class="param sopt"><span>25</span></span>, <span class="param sopt"><span>25.0</span></span>, <span class="param sopt"><span>0.25</span></span>). Элементы оформления не&nbsp;анимируются.</li>
+											<p class="warn">Разделителем целой и&nbsp;дробной части значений является точка!</p>
+											<p class="warn-cmt">При&nbsp;необходимости указать единицы, используйте дополнительный слой.</p>
+										</ul>
+									</td>
+								</tr>
+							</table></div>
+						</li>
+					</ol>
+				</li>
+<!-- --------------------------------------------------------------------------------------------------------------- -->
+				<li><a name="curve"></a>
+					<span class="mark"><h4>Линейные элементы, маршруты.</h4></span>
+					<ol style="--pw: 75px; --pw2: 110px; --tm: 1px;">
+						<li>
+							<div><table>
+								<tr>
+									<td><span class="param tag r">LINE</span>:</td>
+									<td><img alt="line1"/></td>
+									<td>
+										<p>Направленная кривая.</p>
+										<ul>
+											<li>Геометрия: единственный незамкнутый шейп (либо&nbsp;<span class="param tag A">SUB</span> внутри группы).</li>
+											<li>Направление анимации от&nbsp;первого узла к&nbsp;последнему.</li>
+											<p class="warn-cmt">Направление может быть скорректировано вручную с&nbsp;помощью переключателя <span class="param spick">prg-rvrs</span> в&nbsp;эффектах слоя.</p>
+										</ul>
+									</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td><img alt="line2"/></td>
+									<td>
+										<p></p>
+										<ul>
+											<li>Поддерживает функционал проявления с&nbsp;эффектом Posterize. (Подробнее:&nbsp;<a class="cut" href="#linelofps"></a>.)</li>
+											<li>Допускает корректировку толщины открывающей маски. (Подробнее:&nbsp;<a class="cut" href="#linemask"></a>.)</li>
+											<li>Поддерживает внешний контейнер <span class="param tag a">ROUTE</span>.</li>
+										</ul>
+									</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td colspan="2">
+										<div><a name="linelofps"></a>
+											Для&nbsp;использования эффекта следует указать предопределённое значение <span class="param tag">LOFPS</span> в&nbsp;теге идентификации <span class="param opt">VAR</span>. (<span class="param sopt"><span class="param tag">LINE</span>_01<span>,LOFPS</span></span>, <span class="param sopt"><span class="param tag">LINE</span>_01=25<span>,LOFPS</span></span>).
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td colspan="2">
+										<div><a name="linemask"></a>
+											Значение толщины маски в&nbsp;пикселях необходимо указать в&nbsp;теге идентификации <span class="param opt">VAR</span> после знака равенства (<span class="param sopt"><span class="param tag">LINE</span>_1<span>=25</span></span>). По&nbsp;умолчанию используется значение&nbsp;10px.
+											<p class="warn-cmt">Предполагается, что это то&nbsp;же значение, которое указано в&nbsp;<span class="param pick">.psd</span> для&nbsp;линии (автоматически его считать, к&nbsp;сожалению, нельзя).</p>
+										</div>
+									</td>
+								</tr>
+							</table></div>
+						</li>
+						<li>
+							<div><table>
+								<tr>
+									<td><span class="param tag r">ROUTE</span>:</td>
+									<td><img alt="route"/></td>
+									<td>
+										<p>Групповой тег, <a href="AEMAPs User Guide.html#tagsort">связывающий</a> объекты <span class="param tag a">POINT</span>/<span class="param tag a">DOT</span>/<span class="param tag a">PUNCH</span> и&nbsp;<span class="param tag a">LINE</span> для&nbsp;визуализации маршрута.</p>
+										<ul>
+											<li>Первая точка любого типа определяет начало маршрута.</li>
+											<p class="warn-cmt">Точки маршурта могут использоваться как&nbsp;парно, так&nbsp;и&nbsp;комбинироваться между собой.</p>
+										</ul>
+									</td>
+								</tr>
+							</table></div>
+						</li>
+					</ol>
+				</li>
+<!-- --------------------------------------------------------------------------------------------------------------- -->
+				<li><a name="circle"></a>
+					<span class="mark"><h4>Пузырьковые/круговые диаграммы</h4></span>
+					<ol style="--pw: 75px; --pw2: 110px; --tm: 1px;">
+						<li>
+							<div><table>
+								<tr>
+									<td><span class="param tag r">BUBBLE</span>:</td>
+									<td><img alt="bubble"/></td>
+									<td>
+										<p>Площадной элемент.</p>
+										<p class="warn-cmt">(Любой объект с&nbsp;открытием по&nbsp;<span class="param spick">Scale</span>).</p>
+										<ul>
+											<li>
+												Требуется <a href="AEMAPs User Guide.html#struct">геометрия</a> (предполагается центрально&#8209;симметричная).
+												<p class="warn-cmt">Может иметь квадратную или&nbsp;круглую форму. Учитывается только первый шейп.</p>
+												<p></p>
+											</li>
+											<li>Поддерживает анимацию счётчика. (Подробнее:&nbsp;<a class="cut" href="#ccounter"></a>.)</li>
+										</ul>
+									</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td colspan="2">
+										<div><a name="ccounter"></a>
+											Внутренний элемент с&nbsp;тегом <span class="param tag A">TEXT</span> (при&nbsp;наличии), у&nbsp;которого указано предопределённое значение <span class="param tag">LNK</span> для&nbsp;тега идентификации <span class="param opt">VAR</span>, интерпретируется и&nbsp;анимируется как&nbsp;счётчик (<span class="param sopt"><span class="param tag">TEXT</span>_<span>LNK</span></span>). Текст должен содержать только цифры, точность счётчика определяется форматом указанного числа (<span class="param sopt"><span>25</span></span>, <span class="param sopt"><span>25.0</span></span>, <span class="param sopt"><span>0.25</span></span>).
+											<p class="warn">Разделителем целой и&nbsp;дробной части значений является точка!</p>
+											<p class="warn-cmt">При&nbsp;необходимости указать единицы, используйте дополнительный слой.</p>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td><img alt="bubble2"/></td>
+									<td>
+										<ul>
+											<li>Поддерживает вложенный тег <span class="param tag">BUBBLE</span> (вложенная анимация).</li>
+											<p class="warn-cmt">Направление анимации определяется взаимным расположением элементов.</p>
+											<p class="warn-cmt">Поддерживается только один уровень вложенности.</p>
+										</ul>
+									</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td><img alt="bubble3"/></td>
+									<td>
+										<ul>
+										</ul>
+									</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td></td>
+									<td>
+										<ul>
+											<li>Может использоваться в&nbsp;качестве самостоятельного объекта либо как&nbsp;групповой тег, <a href="AEMAPs User Guide.html#tagsort">связывающий</a> вложенные объекты <span class="param tag a">SECTOR</span> в&nbsp;составе круговой диаграммы.</li>
+										</ul>
+									</td>
+								</tr>
+							</table></div>
+						</li>
+						<li>
+							<div><table>
+								<tr>
+									<td><span class="param tag r">SECTOR</span>:</td>
+									<td><img alt="sector1"/></td>
+									<td>
+										<p>Сектор круговой диаграммы.</p>
+										<p class="warn-cmt">(Любой объект с&nbsp;радиальным открытием).</p>
+										<ul>
+											<li>
+												Требуется <a href="AEMAPs User Guide.html#struct">геометрия</a> (предполагается центрально&#8209;симметричная).
+												<p class="warn-cmt">Учитывается только первый шейп, угловые маски игнорируются.</p>
+												<p></p>
+											</li>
+											<li>Диапазон анимации (величина сектора) определяется числовым значением. (Подробнее:&nbsp;<a class="cut" href="#cvalue"></a>.)</li>
+										</ul>
+									</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td colspan="2">
+										<div><a name="cvalue"></a>
+											Истинное значение в&nbsp;процентах <span class="param pick">0-100</span> необходимо указать в&nbsp;теге идентификации <span class="param opt">VAR</span> после знака равенства (<span class="param sopt"><span class="param tag">SECTOR</span>_1<span>=70</span></span>).
+											<p class="warn">Разделителем целой и&nbsp;дробной части значений является точка!</p>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td><img alt="sector2"/></td>
+									<td>
+										<ul>
+											<li>
+												Сектора в&nbsp;составе круговой диаграммы обрабатываются групповым образом с&nbsp;помощью внешнего контейнера <span class="param tag a">BUBBLE</span>.
+												<p class="warn-cmt">Для&nbsp;визуализации диаграмм с&nbsp;суммой значений более&nbsp;100% используйте сектора с&nbsp;прогрессивным радиусом.</p>
+											</li>
+											<li>При&nbsp;наличии в&nbsp;контейнере счётчика (<span class="param sopt"><span class="param tag">TEXT</span>_<span class="param tag">LNK</span></span>) сектора анимируются синхронно со&nbsp;счётчиком, в&nbsp;противном случае последовательно.</li>
+										</ul>
+									</td>
+								</tr>
+							</table></div>
+						</li>
+					</ol>
+				</li>
+			</ol></ol>
+		</td>
+	</tr>
+<!-- --------------------------------------------------------------------------------------------------------------- -->
+<!-- ftr -->
+<!-- --------------------------------------------------------------------------------------------------------------- -->
+</table>
+<!-- --------------------------------------------------------------------------------------------------------------- -->
+</td></tr></table>
+<!-- btn -->
+</body>
+</html>

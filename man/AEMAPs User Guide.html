@@ -1,0 +1,721 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>AEMAPs | R5: User Guide</title>
+<!-- --------------------------------------------------------------------------------------------------------------- -->
+<link href="resources/style.css" rel="stylesheet" type="text/css">
+<!-- --------------------------------------------------------------------------------------------------------------- -->
+<script async src="resources/include.json"></script>
+<script async src="resources/script.js"></script>
+</head>
+<!-- --------------------------------------------------------------------------------------------------------------- -->
+<body>
+<table><tr><td style="padding: 70px 50px;">																<!-- AIR 50 -->
+<!-- <img alt="cap"/> -->
+<!-- --------------------------------------------------------------------------------------------------------------- -->
+<table>
+<!-- hdr -->
+<div id="version">Версия&nbsp;71.2<br/>Совместимо со&nbsp;всеми версиями&nbsp;After&nbsp;Effects, кроме CS6 и&nbsp;CC2015</div>
+<!-- --------------------------------------------------------------------------------------------------------------- -->
+	<tr>
+		<td colspan="3"><a name="common"></a>
+			<!-- <ol style="counter-reset: list1 -1;">
+				<li> -->
+					<h3><!-- About -->Общие сведения:</h3>
+				<!-- </li>
+			</ol> -->
+		</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td colspan="2">
+			<!-- <ol><ol>
+				<li> -->
+					<p>Инструмент предназначен для&nbsp;анимации стандартных (визуализация которых не&nbsp;требует уникальных решений) 2D/2.5D&nbsp;карт, содержащих типовые элементы из&nbsp;соответствующего семпла. Основной функционал заключается в&nbsp;послойной обработке PSD&nbsp;файла в&nbsp;After&nbsp;Effects, при&nbsp;этом способ и&nbsp;параметры анимации выбираются на&nbsp;основании тегов, указанных в&nbsp;именах слоёв.</p>
+					<p>Предлагаемое решение позволяет ускорить процесс создания анимированной карты за&nbsp;счёт того, что&nbsp;разработка логики визуализации, контроль результата и&nbsp;внесение правок могут быть сосредоточены в&nbsp;руках одного специалиста, независимо от&nbsp;его уровня владения&nbsp;AE.</p>
+				<!-- </li>
+			</ol></ol> -->
+		</td>
+	</tr>
+<!-- --------------------------------------------------------------------------------------------------------------- -->
+	<tr>
+		<td colspan="3"><a name="setup"></a>
+			<ol style="counter-reset: list1 -1;">
+				<li><h3><!-- Installation -->Установка:</h3></li>
+			</ol>
+		</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td colspan="2">
+			<ol><ol>
+<!-- 				<li>The product requires no special installation. You can run this directly from After Effects interface.</li>
+				<ul>
+					<li>Go to the [<em>File</em>] menu in After Effects, select [<em>Scripts</em>] section and click [<em>Run Script File...</em>] command.</li>
+					<li>Then set file type (drop-down list in the browse window) to [<em>Adobe JavaScript Binary file (*.jsxbin)</em>] and get file "<em>....jsxbin</em>" where you unpacked it.</li>
+				</ul>
+				<li>If you want to have this tool always at hand you can embed it into AE interface.</li>
+				<ul>
+					<li>Just copy file "<em>....jsxbin</em>" in the "<em>ScriptUI Panels</em>" folder which you can find in After Effects installation directory (for example, "<em>c:\Program Files\Adobe\Adobe After Effects CC 2014\Support Files\Scripts\ScriptUI Panels</em>" on Windows or "<em>/Applications/Adobe After Effects CC 2014/Scripts/ScriptUI Panels</em>" on Mac OS).</li>
+					<li>Then restart After Effects and run "<em>....jsxbin</em>" from the [<em>Window</em>] menu. Now you have <a href="https://videohive.net/user/dtdt-works/portfolio?ref=dtdt-works" target="_blank"><strong>...</strong></a> as a regular dockable panel.</li>
+				</ul> -->
+				<li>
+					Скрипт не&nbsp;требует установки. Его можно запустить напрямую из&nbsp;After&nbsp;Effects. (Подробнее:&nbsp;<a class="cut" href="#uisolo"></a>.)
+					<div><a name="uisolo"></a>
+						<ul>
+							<li>Зайдите в&nbsp;пункт <span class="param pick">File</span> меню After&nbsp;Effects, выберите секцию <span class="param pick">Scripts</span> и&nbsp;кликните <span class="param pick">Run Script File...</span>.</li>
+							<li>Установите тип файла (выпадающий список или кнопка <span class="param pick">Options</span> в&nbsp;окне выбора) на&nbsp;<span class="param pick">Adobe JavaScript Binary file (*.jsxbin)</span> и&nbsp;откройте файл <span class="param spick">AEMAPs.jsxbin</span> согласно его месторасположению.</li>
+						</ul>
+					</div>
+				</li>
+				<li>
+					При необходимости постоянного доступа к&nbsp;скрипту, его можно внедрить в&nbsp;интерфейс&nbsp;AE. (Подробнее:&nbsp;<a class="cut" href="#uipanel"></a>.)
+					<div><a name="uipanel"></a>
+						<ul>
+							<li>Скопируйте файл <span class="param spick">AEMAPs.jsxbin</span> и&nbsp;папку <span class="param spick">handlers</span> в&nbsp;папку <span class="param spick">ScriptUI Panels</span>, которую вы можете найти в&nbsp;каталоге с&nbsp;установленным After&nbsp;Effects (например, <span class="param spick">c:\Program Files\Adobe\Adobe After Effects CC 2018\Support Files\Scripts\ScriptUI Panels</span> для&nbsp;Windows или&nbsp;<span class="param spick">/Applications/Adobe After Effects CC 2018/Scripts/ScriptUI Panels</span> для&nbsp;Mac&nbsp;OS).</li>
+							<li>Перезапустите After&nbsp;Effects и&nbsp;откройте <span class="param pick">AEMAPs.jsxbin</span> через пункт меню <span class="param pick">Window</span>. Теперь <a href="" target=""><strong>AEMAPs&nbsp;|&nbsp;R5</strong></a> установлен как&nbsp;встроенная панель.</li>
+						</ul>
+						<p class="warn-cmt">В&nbsp;режиме встроенной панели некоторые статусные сообщения могут не&nbsp;отображаться. Все&nbsp;сообщения можно увидеть в&nbsp;стандартной панели <span class="param pick">Info</span>.</p>
+					</div>
+				</li>
+				<li>
+					Для&nbsp;корректной работы необходимы следующие настройки в&nbsp;After&nbsp;Effects:
+					<p class="warn">Иначе объекты могут дрейфовать или&nbsp;иметь неправильную скорость/направление анимации!</p>
+					<div><table>
+					<!-- <div style="width: 100%;"><table style="width: 100%;"> -->
+						<tr>
+							<td><img alt="spatial"/></td>
+							<td><img alt="import"/></td>
+							<td><img alt="import_bug"/></td>
+						</tr>
+						<!-- <tr>
+							<td colspan="2"></td>
+							<td style="width: 100%; text-align: right;">
+								<p class="warn">
+									<font color="black"><strong>* Cовместимо со&nbsp;всеми версиями&nbsp;АЕ, кроме CS6 и&nbsp;CC2015.</strong></font>
+								</p>
+							</td>
+						</tr> -->
+					</table></div>
+					<p class="warn-cmt">Для&nbsp;возможности работы системы встроенных обновлений необходимо включить параметр <span class="param pick">Allow Scripts to Write Files and Access Network</span>.</p>
+					<p class="warn-cmt">Также рекомендуется отключить параметры <span class="param pick">Enable JavaScript Debugger</span> и&nbsp;<span class="param pick">Warn User When Executing Files</span>.</p>
+				</li>
+				<li>Комплектация инструмента (ключевые элементы):</li>
+				<ol style="--pw: 160px; --tm: 1.5px;">
+					<li>
+						<div><table>
+							<tr>
+								<td><span class="param spick">AEMAPs.jsx[bin]</span>:</td>
+								<td>Исполняемый файл с&nbsp;движком скрипта.</td>
+							</tr>
+						</table></div>
+					</li>
+					<li>
+						<div><table>
+							<tr>
+								<td><span class="param spick">aedt</span>:</td>
+								<td>Подключаемая библиотека, необходима для&nbsp;работы. Должна располагаться там&nbsp;же, где&nbsp;и&nbsp;движок.</td>
+							</tr>
+						</table></div>
+					</li>
+					<li>
+						<div><table>
+							<tr>
+								<td><span class="param spick">config.json</span>:</td>
+								<td>Файл настроек с&nbsp;раздельным набором параметров под&nbsp;каждую конфигурацию.</td>
+							</tr>
+						</table></div>
+					</li>
+					<li>
+						<div><table>
+							<tr>
+								<td><span class="param spick">handlers</span>:</td>
+								<td>
+									Папка с&nbsp;обработчиками тегов. Расположение можно изменить в&nbsp;файле <span class="param spick">config.json</span>. (Примечание:&nbsp;<a class="cut" href="#handlers"></a>.)
+									<div><a name="handlers"></a>
+										<ul>
+											<li>Каждый файл в&nbsp;папке может быть либо обработчиком <span class="param pick">.jsxinc|.jsx|.jsxbin</span>, содержащим код на&nbsp;Extend&nbsp;Script, либо&nbsp;<span class="param pick">.ffx</span> пресетом&nbsp;AE. Подгрузка папки происходит динамически при&nbsp;выборе конфигурации.</li>
+											<li>Файлы именуются в&nbsp;соответствии с&nbsp;шаблоном: <span class="param sopt"><span class="a">TAG</span><span style="font-weight: normal;">.jsxinc</span></span>.</li>
+											<li>Код обработчиков открыт. При&nbsp;наличии соответствующих навыков можно вносить изменения самостоятельно. Подробное руководство по&nbsp;разработке можно найти в&nbsp;файле <a href="AEMAPs Developer Guide.html" target="_blank"><strong>AEMAPs&nbsp;Developer&nbsp;Guide</strong></a></li>
+											<li>Ознакомиться со&nbsp;списком доступных переменных и&nbsp;методов<!-- , а&nbsp;также с&nbsp;общей структурой обработчика --> можно в&nbsp;заголовках файлов <span class="param spick">default.jsxinc</span> и&nbsp;<span class="param spick">init.jsxinc</span>.</li>
+											<!-- <li>Добавить свои объекты и&nbsp;методы можно в&nbsp;файле <span class="param spick">init.jsxinc</span>, который вызывается перед&nbsp;началом рекурсивного обхода.</li> -->
+										</ul>
+									</div>
+								</td>
+							</tr>
+						</table></div>
+					</li>
+					<li>
+						<div><table>
+							<tr>
+								<td><a name="example"></a><span class="param spick">sample</span>:</td>
+								<td>
+									Папка с&nbsp;базовым шаблоном для&nbsp;After&nbsp;Effects, проектом Photoshop с&nbsp;примерами сборки для&nbsp;всех доступных элементов и&nbsp;превью анимации. (Примечание:&nbsp;<a class="cut" href="#template"></a>.)
+									<div><a name="template"></a>
+										<p>В&nbsp;режиме <span class="param pick">AUTO</span> скрипт работает с&nbsp;любым проектом, удовлетворяющим базовым требованиям:</p>
+										<ul>
+											<li>наличие композиции с&nbsp;именем, указанным с&nbsp;ключом <span class="param pick">"croot"</span> для&nbsp;нужного оформления в&nbsp;файле <span class="param spick">config.json</span>,</li>
+											<li>наличие в&nbsp;этой композиции <!-- <span class="param pick">50mm</span> --> камеры с&nbsp;<span class="param pick">Orbit Null</span>.</li>
+										</ul>
+										<p class="warn-cmt">В&nbsp;режиме <span class="param pick">SOLO</span> требования отсутствуют.</p>
+									</div>
+								</td>
+							</tr>
+						</table></div>
+					</li>
+					<li>
+						<div><table>
+							<tr>
+								<td><span class="param spick">man</span>:</td>
+								<td>Папка с&nbsp;руководствами пользователя, разработчика и&nbsp;описаниями конфигураций.</td>
+							</tr>
+						</table></div>
+					</li>
+				</ol>
+			</ol></ol>
+		</td>
+	</tr>
+<!-- --------------------------------------------------------------------------------------------------------------- -->
+	<tr>
+		<td colspan="3"><a name="usage"></a>
+			<ol style="counter-reset: list1 0;">
+				<li><h3><!-- Usage -->Использование:</h3></li>
+			</ol>
+		</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td colspan="2">
+		<!-- <td colspan="2" style="padding: 0;"> -->
+			<ol style="counter-reset: list1 1;"><ol>
+			<!-- <div><ul> -->
+				<li>
+					Подготовьте основу карты в&nbsp;<span class="param pick">.psd</span> согласно <a href="#rules">правилам</a>. (Имейте в&nbsp;виду особенности импорта:&nbsp;<a href="#import">см.&nbsp;п.4.1</a>.)
+				</li>
+				<li>
+					Запустите скрипт, если он ещё не&nbsp;запущен. Выберите режим работы <span class="param spick">Handle mode</span> и&nbsp;нужную конфигурацию <span class="param spick">- config -</span>.
+				</li>
+				<ol>
+					<li>
+						В&nbsp;режиме <span class="param pick">AUTO</span> карта обрабатывается полностью. (Подробнее:&nbsp;<a class="cut" href="#auto"></a>.) <!-- (<a href="#undo">См.&nbsp;также&nbsp;п.4.2.</a>) -->
+						<div><a name="auto"></a>
+							<ul>
+								<li>Откройте <span class="param pick">.aet</span> проект из&nbsp;папки <span class="param spick">sample</span> либо&nbsp;проект, основанный на&nbsp;этом шаблоне.</li>
+								<li>Выберите файл основы <span class="param spick">Browse</span>.</li>
+							</ul>
+						</div>
+					</li>
+					<li>
+						В&nbsp;режиме <span class="param pick">SOLO</span> обрабатывается только выбранный слой или&nbsp;группа слоёв. Именование выбранных объектов в&nbsp;этом режиме необязательно. (Подробнее:&nbsp;<a class="cut" href="#solo"></a>.)
+						<div><a name="solo"></a>
+							<ul>
+								<li>Импортируйте подготовленную основу в&nbsp;любой проект. Откройте нужную композицию и&nbsp;выберите слой или&nbsp;группу слоёв.</li>
+								<li>
+									Выберите желаемый обработчик <span class="param spick">Select TAG</span> или&nbsp;оставьте значение <span class="param pick">- name -</span>, если выбранные объекты уже&nbsp;корректно проименованы.
+									<p class="warn-cmt">Выбранный обработчик будет применен только к объектам верхнего уровня.</p>
+								</li>
+								<li>
+									<p>При&nbsp;выборе обработчика можно указать соответствующие теги <span class="param opt">VAR</span> и <span class="param opt">Ts/Te</span> (<a href="#naming">см.&nbsp;п.2.3</a>).</p>
+									<p>
+										Значением по&nbsp;умолчанию для&nbsp;<span class="param opt">Ts</span> является позиция курсора на&nbsp;таймлайне.
+										<br/>Значению по&nbsp;умолчанию для&nbsp;<span class="param opt">Te</span> соответствует выход на&nbsp;стоп-кадр. При&nbsp;необходимости убрать объект в&nbsp;конце композиции используйте значение&nbsp;<span class="param spick">-1</span>.
+									</p>
+								</li>
+								<li>
+									Анимацию входа можно применить только к&nbsp;статичному объекту в&nbsp;исходном состоянии, т.к.&nbsp;все вычисления выполняются до&nbsp;выполнения изменений. Для&nbsp;возврата элемента в&nbsp;исходное состояние используйте штатный функционал отмены последнего действия.
+									<!-- <p class="warn">Попытка повторной обработки объекта ведет к ошибкам!</p> -->
+								</li>
+							</ul>
+						</div>
+						<p>
+							Если&nbsp;анимация выхода не&nbsp;была применена (в&nbsp;цепочке иерархии элемента отсутствуют теги <span class="param opt">Te</span>), повторный запуск выполнит принудительное закрытие к&nbsp;моменту, соответствующему позиции курсора на&nbsp;таймлайне (анимация слева). Это&nbsp;дает возможность управлять анимацией выхода в&nbsp;ручном режиме.
+						</p>
+					</li>
+				</ol>
+				<li>
+					Выберите дополнительные опции при&nbsp;необходимости (<a class="cut" href="#uiopt"></a>), затем нажмите кнопку выполнения.
+					<div><a name="uiopt"></a>
+						<ol style="--pw: 170px; --tm: 1px;">
+							<li>
+								<div><table>
+									<tr>
+										<td><span class="param opt">Total duration</span>:</td>
+										<td>Общий хронометраж карты или&nbsp;активной композиции в&nbsp;секундах.</td>
+									</tr>
+								</table></div>
+							</li>
+							<li>
+								<div><table>
+									<tr>
+										<td><span class="param opt">Disable collapse</br>transformation</span>:</td>
+										<td>
+											Принудительное отключение флага <span class="param pick">Collapse Transformations</span> <img alt="collapse"/> на&nbsp;слоях внутри обрабатываемого объекта.
+											<p class="warn-cmt">Может повысить производительность проекта и&nbsp;сократить время рендера. Элементы с&nbsp;3D&nbsp;позиционированием могут анимироваться некорректно.</p>
+										</td>
+									</tr>
+								</table></div>
+							</li>
+							<li>
+								<div><table>
+									<tr>
+										<td><span class="param opt">All text to editable</span>:</td>
+										<td>
+											Включите, если хотите трансформировать все слои с&nbsp;тегом <span class="param tag a">TEXT</span> в&nbsp;текстовые слои&nbsp;AE.
+											<p class="warn-cmt">Это займёт длительное время.</p>
+										</td>
+									</tr>
+								</table></div>
+							</li>
+						</ol>
+					</div>
+				</li>
+				<li>
+					<p>Дождитесь окончания работы скрипта (это может занять продолжительное время, в&nbsp;зависимости от&nbsp;сложности карты).</p>
+					<p class="warn-cmt">В&nbsp;процессе выполнения не&nbsp;рекомендуется переключаться на&nbsp;другие приложения, т.к.&nbsp;это может привести к&nbsp;потере контроля над&nbsp;АЕ до&nbsp;окончания работы скрипта.</p>
+					<p>В&nbsp;случае успешного завершения вы увидите сообщение <span class="param spick">Success</span> в&nbsp;строке состояния.
+					В&nbsp;случае возникновения сообщений об&nbsp;ошибках проверьте структуру основы. При&nbsp;необходимости создайте тикет в&nbsp;<a href="https://discord.gg/9VQDmPh7A2" target="_blank">Discord</a> или&nbsp;<a href="https://crm.emg24.ru/workgroups/group/14/forum/45900" target="_blank">Битрикс24</a>, сопроводив его описанием проблемы, и&nbsp;приложив файлы основы <span class="param pick">.psd</span> и&nbsp;журнала работы <span class="param pick">.log</span>.</p>
+				</li>
+				<li>После завершения работы скрипта проект можно свободно править вручную либо отдать на&nbsp;доработку аниматору. Перезапускать скрипт для&nbsp;обработки новой карты не&nbsp;обязательно, за&nbsp;исключением случаев смены версий скрипта (в&nbsp;этом случае рекомендуется также перезапустить After&nbsp;Effects).</li>
+			<!-- </ul></div> -->
+			</ol></ol>
+		</td>
+	</tr>
+<!-- --------------------------------------------------------------------------------------------------------------- -->
+	<tr>
+		<td colspan="3"><a name="rules"></a>
+			<ol style="counter-reset: list1 1;">
+				<li><h3>Правила организации PSD&nbsp;проекта карты:</h3></li>
+			</ol>
+		</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td colspan="2">
+			<ol style="counter-reset: list1 2;"><ol>
+				<li>Слои рекомендуется располагать стопкой снизу вверх в&nbsp;соответствии со&nbsp;следующими принципами (в&nbsp;порядке приоритета):</li>
+				<div><table>
+				<!-- <div style="width: 100%;"><table style="width: 100%;"> -->
+					<tr>
+						<td><img alt="order"/></td>
+						<td>
+							<p></p>
+							<ul>
+								<li>пространственная иерархия вдоль нормали к&nbsp;поверхности земли;</li>
+								<li>порядок появления в&nbsp;кадре в&nbsp;соответствии с&nbsp;драматургией.</li>
+							</ul>
+						</td>
+					</tr>
+				</table></div>
+				<li>
+					Все слои, по&nbsp;драматургии ведущие себя как&nbsp;единый объект, должны быть по&nbsp;возможности смерджены либо, в&nbsp;случае необходимости, сгруппированы. (Подробнее:&nbsp;<a class="cut" href="#merging"></a>.)
+					<div><a name="merging"></a>
+						<h4>Склейка и&nbsp;группировка:</h4>
+						<ul>
+							<li>Всё, что&nbsp;двигается как&nbsp;единый плоский объект, не&nbsp;содержит текста, и&nbsp;не&nbsp;использует режимов наложения в&nbsp;отдельных своих частях, должно быть смерджено.</li>
+							<li>Если части объекта разнесены во&nbsp;времени или&nbsp;в&nbsp;пространстве, или&nbsp;объект содержит текст, или&nbsp;части объекта используют разные режимы наложения, объект должен быть сгруппирован.</li>
+						</ul>
+					</div>
+				</li>
+<!-- --------------------------------------------------------------------------------------------------------------- -->
+				<li><a name="naming"></a>
+					Каждый слой, требующий обработки, именуется в&nbsp;соответствии с <span class="mark">шаблоном</span>: <span class="param sopt"><span>TAG_VAR_[Ts/Te] ***</span></span>.
+					<p class="warn">Символы <span class="param sopt"><span>_[]/&nbsp;=+-</span></span> (нижнее подчёркивание, квадратные скобки, прямой слеш, пробел, знак равенства, знаки плюс и&nbsp;минус) в&nbsp;значимой части имени слоя следует использовать только в&nbsp;местах, предусмотренных шаблоном.</p>
+				</li>
+				<ol style="--pw: 50px; --tm: 1px;">
+					<li>
+						<div><table>
+							<tr>
+								<td><span class="param opt r">TAG</span>:</td>
+								<td>Тег обработчика из&nbsp;<a href="#taglist">списка доступных</a>.</td>
+							</tr>
+						</table></div>
+					</li>
+					<li>
+						<div><table>
+							<tr>
+								<td><span class="param opt">VAR</span>:</td>
+								<td>
+									Тег идентификации (например, нумерация), опционально. Желателен при&nbsp;наличии нескольких элементов с&nbsp;одинаковым <span class="param opt">TAG</span> на&nbsp;одном уровне вложенности. (Подробнее:&nbsp;<a class="cut" href="#numbering"></a>.)
+									<div><a name="numbering"></a>
+										<h4>Нумерация:</h4>
+										<ul>
+											<li>Нумерация может содержать цифры, буквы и&nbsp;незарезервированные символы. Сортировка проводится в&nbsp;алфавитном порядке (<span class="param sopt">TAG</span>, <span class="param sopt">TAG_<span>#1</span></span>, <span class="param sopt">TAG_<span>02</span></span>, <span class="param sopt">TAG_<span>1</span></span>, <span class="param sopt">TAG_<span>a1</span></span>, <span class="param sopt">TAG_<span>a9</span></span>, <span class="param sopt">TAG_<span>b-1</span></span>, <span class="param sopt">TAG_<span>cde</span></span>).</li>
+											<li>При&nbsp;использовании цифровой нумерации следует использовать одинаковое количество регистров для&nbsp;всех нумеруемых элементов (<span class="param sopt">TAG_<span>1</span></span>...<span class="param sopt">TAG_<span>9</span></span> либо&nbsp;<span class="param sopt">TAG_<span>01</span></span>...<span class="param sopt">TAG_<span>99</span></span>).</li>
+											<li>В&nbsp;случае использования нумерации совместно с&nbsp;предопределённым значением <span class="param opt">VAR</span> номер следует указывать непосредственно после этого значения, для&nbsp;лучшей читаемости его можно отделить минусом (<span class="param sopt">TAG_<span class="param tag">LNK</span><span>01</span></span> или&nbsp;<span class="param sopt">TAG_<span class="param tag">LNK</span><span>-01</span></span>).</li>
+											<li>Некоторые элементы поддерживают смысловое значение, указанное после знака равенства. Эту&nbsp;конструкцию следует добавлять в&nbsp;конец <span class="param opt">VAR</span> (<span class="param sopt"><span class="param tag">SECTOR</span>_<span>01</span>=25</span> или&nbsp;<span class="param sopt"><span class="param tag">GROUP</span>_<span class="param tag">AUTO</span><span>-01</span>=0.5</span>).</li>
+										</ul>
+									</div>
+								</td>
+							</tr>
+						</table></div>
+					</li>
+					<li>
+						<div><table>
+							<tr>
+								<td><span class="param opt">Ts/Te</span>:</td>
+								<td>
+									Моменты начала появления /&nbsp;конца исчезновения в&nbsp;секундах, опционально. Отсчёт локальный от&nbsp;начала родительской группы. (Подробнее:&nbsp;<a class="cut" href="#timing"></a>.)
+									<p class="warn">Разделителем целой и&nbsp;дробной части значений является точка!</p>
+									<div><a name="timing"></a>
+										<h4>Тайминг:</h4>
+										<ul>
+											<li>Обратите внимание на&nbsp;тайминги стартового вылета по&nbsp;умолчанию в&nbsp;АЕ&nbsp;шаблоне. Начинать анимацию объектов верхнего уровня следует так, чтобы&nbsp;она не&nbsp;происходила за&nbsp;кадром и&nbsp;объекты не&nbsp;попадали под&nbsp;стартовые тинты и&nbsp;маски. Тех&nbsp;же принципов следует придерживаться при&nbsp;смене непересекающихся локаций (перелёты камеры к&nbsp;участку карты за&nbsp;пределами экрана).</li>
+											<li>
+												Если длительность элемента меньше, чем&nbsp;две длительности анимации входа, то&nbsp;анимация выхода не&nbsp;будет применена, во&nbsp;избежание пересечения ключей.
+												<p class="warn-cmt">В&nbsp;простых случаях длительность элемента от&nbsp;3&nbsp;сек. и&nbsp;выше, как&nbsp;правило, гарантирует отсутствие проблем.</p>
+											</li>
+											<li>Если элемент находится внутри <span class="param tag a">TICKET</span>, следует учитывать дополнительные задержки для&nbsp;каждого элемента и&nbsp;делать соответствующий запас (примерно).</li>
+											<li>Если в&nbsp;цепочке иерархии элемента отсутствуют теги <span class="param opt">Te</span>, анимация выхода не&nbsp;будет применена, &#x2014;&nbsp;этот факт можно использовать для&nbsp;выхода карты на&nbsp;стоп&#8209;кадр.</li>
+											<li>При&nbsp;расстановке автоматических таймингов тег <span class="param opt">Ts</span> может быть текстовым (<a href="#atiming">см.&nbsp;п.2.5.1</a>).</li>
+										</ul>
+									</div>
+								</td>
+							</tr>
+						</table></div>
+					</li>
+					<li>
+						<div><table>
+							<tr>
+								<td><span class="param opt">***</span>:</td>
+								<td>Произвольный текст (комментарий) после пробела, опционально.</td>
+							</tr>
+						</table></div>
+					</li>
+				</ol>
+<!-- --------------------------------------------------------------------------------------------------------------- -->
+				<li><a name="struct"></a>
+					<span class="mark">Структура слоя</span>, требующего обработки:
+				</li>
+				<ol>
+					<li>В&nbsp;случае, если анимация не&nbsp;связана с&nbsp;геометрией, слой может быть растровым. В&nbsp;противном случае слой должен представлять из&nbsp;себя шейп, определяющий контуры объекта, или&nbsp;группу.</li>
+					<li>Внутри группы (если анимация объекта связана с&nbsp;геометрией) должен присутствовать как&nbsp;минимум один базовый шейповый слой с&nbsp;тегом <span class="param tag r">SUB</span>, определяющий контуры объекта.</li>
+					<li>
+						В&nbsp;случае сложной геометрии все слои в&nbsp;группе, влияющие на&nbsp;контур, должны иметь тег <span class="param tag">SUB</span> и,&nbsp;желательно, быть пронумерованы с&nbsp;помощью <span class="param opt">VAR</span>. (Примечание:&nbsp;<a class="cut" href="#subsort"></a>.)
+						<div><a name="subsort"></a>
+							<p>Последовательность обработки слоёв <span class="param tag">SUB</span>, как&nbsp;правило, определяется порядком сортировки по&nbsp;следующим параметрам (в&nbsp;порядке приоритета):</p>
+							<ul>
+								<li>тег идентификации <span class="param opt">VAR</span> (по&nbsp;возрастанию);</li>
+								<li>общая площадь слоя по&nbsp;совокупности шейпов без&nbsp;учёта режимов наложения (по&nbsp;убыванию);</li>
+								<li>индекс слоя в&nbsp;стопке (снизу вверх).</li>
+							</ul>
+						</div>
+					</li>
+					<li>Для&nbsp;текстовых слоёв рекомендуется использовать тег <span class="param tag r">TEXT</span>. Слои с&nbsp;этим тегом будут преобразованы в&nbsp;редактируемый текст при&nbsp;выборе соответствующей опции (<a href="#uiopt">см.&nbsp;п.1.3.3</a>).</li>
+				</ol>
+<!-- --------------------------------------------------------------------------------------------------------------- -->
+				<li><a name="grouping"></a>
+					<span class="mark">Наборы логически связанных элементов</span> рекомендуется помещать в&nbsp;общий контейнер с&nbsp;использованием одного из&nbsp;групповых тегов. (Примечание:&nbsp;<a class="cut" href="#tagsort"></a>.)
+					<div><a name="tagsort"></a>
+						<p>Последовательная анимация однотипных элементов в&nbsp;рамках одного уровня вложенности, как&nbsp;правило, определяется порядком сортировки по&nbsp;следующим параметрам (в&nbsp;порядке приоритета):</p>
+						<ul>
+							<li>тег идентификации <span class="param opt">VAR</span> (по&nbsp;возрастанию);</li>
+							<li>индекс слоя в&nbsp;стопке (снизу вверх).</li>
+						</ul>
+					</div>
+				</li>
+				<ol style="--pw: 70px; --pw2: 110px;">
+					<li>
+						<div><table>
+							<tr>
+								<td><span class="param tag r">GROUP</span>:</td>
+								<td><img alt="group"/></td>
+								<td>
+									<p>Объединение независимых объектов.</p>
+									<p class="warn-cmt">Например, для&nbsp;проявления в&nbsp;определённый момент времени или&nbsp;смещения тайминга группы плашек при&nbsp;двухэтапной анимации.</p>
+									<ul>
+										<li>Поддерживает автоматическую расстановку таймингов. (Подробнее:&nbsp;<a class="cut" href="#atiming"></a>.)</li>
+										<li>Допускается вложенность друг в&nbsp;друга.</li>
+									</ul>
+								</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td colspan="2">
+									<div><a name="atiming"></a>
+										<h4>Автоматический тайминг:</h4>
+										<ul>
+											<li>Для&nbsp;расстановки автоматических таймингов внутри группы можно использовать предопределённое значение <span class="param tag">AUTO</span> для&nbsp;тега идентификации <span class="param opt">VAR</span> совместно с&nbsp;тегом обработчика <span class="param tag">GROUP</span>. Появление элементов будет распределено равномерно по&nbsp;хронометражу всей группы (<span class="param sopt"><span class="param tag">GROUP</span>_<span>AUTO</span></span>).</li>
+											<li>Автоматический тайминг будет применён ко&nbsp;всем элементам внутри группы, за&nbsp;исключением имеющих явные тайминги <span class="param opt">Ts/Te</span>. Порядок появления определяется индексом слоя.</li>
+											<li>Нумерация не&nbsp;используется, но&nbsp;последовательность появления разнотипных элементов можно изменить, используя текстовый (первый символ в&nbsp;<span class="param opt">Ts</span> не&nbsp;должен быть цифрой) тег тайминга (<span class="param sopt">TAG_VAR_[<span>a1</span>]</span>). Сортировка при&nbsp;этом проводится в&nbsp;алфавитном порядке, аналогично <span class="param opt">VAR</span> (<a href="#numbering">см.&nbsp;п.2.3.2</a>).</li>
+											<li>Кроме равномерного распределения по&nbsp;хронометражу, возможно последовательное появление элементов вначале с&nbsp;одинаковой задержкой относительно начала предыдущего. Значение задержки в&nbsp;секундах можно указать в&nbsp;конце <span class="param opt">VAR</span> после знака равенства (<span class="param sopt"><span class="param tag">GROUP</span>_<span class="param tag">AUTO</span><span>=0.5</span></span>).</li>
+											<li>Задержка может учитывать длительность анимации предыдущего элемента. Для&nbsp;этого вместо знака равенства используйте знаки плюс или&nbsp;минус (<span class="param sopt"><span class="param tag">GROUP</span>_<span class="param tag">AUTO</span><span>+0</span></span>, <span class="param sopt"><span class="param tag">GROUP</span>_<span class="param tag">AUTO</span><span>-0.5</span></span>). В&nbsp;случае нулевого значения начало анимации будет совпадать с&nbsp;моментом окончания анимации предыдущего элемента.</li>
+											<li>Содержимое группы с&nbsp;автоматическим таймингом закрывается всегда синхронно. Если в&nbsp;цепочке тегов отсутствуют тайминги окончания <span class="param opt">Te</span>, анимация выхода не&nbsp;будет применена.</li>
+										</ul>
+									</div>
+								</td>
+							</tr>
+						</table></div>
+					</li>
+					<li>
+						<div><table>
+							<tr>
+								<td><span class="param tag r">TICKET</span>:</td>
+								<td><img alt="ticket"/></td>
+								<td>
+									<p>Группа геометрически зависимых (связанных единым центром и&nbsp;последовательной анимацией) объектов самостоятельного смыслового обозначения на&nbsp;карте.</p>
+									<p class="warn-cmt">Например, пунсон +&nbsp;метка +&nbsp;инфоплашка.</p>
+									<ul>
+										<li>Поддерживает следующие теги: <span class="param tag">POINT</span>, <span class="param tag">PUNCH</span>, <span class="param tag">LABEL</span>, <span class="param tag">CAPTION</span>, <span class="param tag">VALUE</span>, <span class="param tag">SIGN</span>, <span class="param tag">ROUTE</span>, <span class="param tag">BUBBLE</span>. (<a href="#taglist">см.&nbsp;п.3</a>)</li>
+										<li>Поддерживает автомасштабирование содержимого для сохранения визуального размера при движении камеры. (Подробнее:&nbsp;<a class="cut" href="#azoom"></a>.)</li>
+										<li>Вложенность не&nbsp;допускается.</li>
+									</ul>
+								</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td colspan="2">
+									<div><a name="azoom"></a>
+										Для&nbsp;сохранения визуального размера объекта следует поместить его в&nbsp;<span class="param tag">TICKET</span> с&nbsp;использованием предопределённого значения <span class="param tag">LNK</span> для&nbsp;тега идентификации <span class="param opt">VAR</span>. Такой&nbsp;же тег нужно указать соответствующему <span class="param tag a">OVER</span> (<span class="param sopt"><span class="param tag">TICKET</span>_<span>LNK</span></span>, <span class="param sopt"><span class="param tag">OVER</span>_<span>LNK</span></span>).
+										<ul>
+											<li>Способ работает для&nbsp;объекта или группы объектов с&nbsp;единой точкой привязки <span class="param pick">anchor point</span>. Для&nbsp;корректного автомасштабирования объектов с&nbsp;разными позициями на&nbsp;карте, каждый из&nbsp;них должен быть помещен в&nbsp;отдельный <span class="param tag">TICKET</span>.</li>
+											<li>Не&nbsp;помещайте связанный <span class="param sopt"><span class="param tag">OVER</span>_<span class="param tag">LNK</span></span> внутрь <span class="param sopt"><span class="param tag">TICKET</span>_<span class="param tag">LNK</span></span>!</li>
+										</ul>
+										<p class="warn-cmt">Опция высоконагруженная и&nbsp;может отнимать много ресурсов, поскольку геометрия связанных объектов пересчитывается в&nbsp;каждом фрейме.</p>
+									</div>
+								</td>
+							</tr>
+						</table></div>
+					</li>
+					<li>
+						<div><table>
+							<tr>
+								<td><span class="param tag r">SIDEBAR</span>:</td>
+								<td><img alt="sidebar"/></td>
+								<td>
+									<p>Боковая панель, инфоблок.</p>
+									<ul>
+										<li>Требуется <a href="#struct">геометрия</a> (предполагается прямоугольная).</li>
+										<li>Поддерживает корректировку направления анимации. (Подробнее:&nbsp;<a class="cut" href="#sidebar"></a>.)</li>
+										<li>Вложенность не&nbsp;допускается.</li>
+									</ul>
+								</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td colspan="2">
+									<div><a name="sidebar"></a>
+										Одно из&nbsp;осевых положений границы <span class="param tag">L</span>/<span class="param tag">T</span>/<span class="param tag">R</span>/<span class="param tag">B</span> можно указать в&nbsp;теге идентификации <span class="param opt">VAR</span> (<span class="param sopt"><span class="param tag">SIDEBAR</span>_<span>L</span></span> или&nbsp;<span class="param sopt"><span class="param tag">SIDEBAR</span>_<span>L</span>-01</span>). По&nbsp;умолчанию используется направление от&nbsp;ближайшей границы или&nbsp;угла&nbsp;соответствующего <span class="param tag a">OVER</span> или&nbsp;экрана.
+									</div>
+								</td>
+							</tr>
+						</table></div>
+					</li>
+					<li>
+						<div><table>
+							<tr>
+								<td><span class="param tag r">INSET</span>:</td>
+								<td><img alt="inset"/></td>
+								<td>
+									<p>Карта-врезка.</p>
+									<ul>
+										<li><!-- Требуется <a href="#struct">геометрия</a> (предполагается центрально-симметричная).  -->Структура согласно <a href="#example">образцу</a>. (Подробнее:&nbsp;<a class="cut" href="#inset"></a>.)</li>
+										<!-- <li>Вложенность не&nbsp;допускается.</li> -->
+									</ul>
+									<p class="warn-cmt">Объекты в&nbsp;группе не&nbsp;обрезаются маской врезки.</p>
+								</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td colspan="2">
+									<div><a name="inset"></a>
+										<ul>
+											<li>Создайте врезку в&nbsp;масштабе, соответствующем раскрытому состоянию, и&nbsp;заверните её в&nbsp;<span class="param pick">Smart&nbsp;Object</span> с&nbsp;тегом&nbsp;<span class="param tag">OUT</span>.</li>
+											<li>
+												Наложите на&nbsp;объект <span class="param pick">Vector&nbsp;Mask</span> необходимой формы.
+												<p class="warn">Границы объекта должны лежать за&nbsp;пределами маски, во&nbsp;избежание подрезки при&nbsp;анимации.</p>
+											</li>
+											<li>
+												Создайте копию объекта с&nbsp;тегом <span class="param tag">IN</span>. Отмасштабируйте и&nbsp;расположите её для&nbsp;соответствия стартовому состоянию и&nbsp;отключите.
+												<p class="warn-cmt">Анимация предполагает, что&nbsp;состояние <span class="param tag">IN</span> соответствует реальной области на&nbsp;основной карте и&nbsp;не&nbsp;является точкой.</p>
+											</li>
+											<li>
+												При&nbsp;необходимости добавьте в&nbsp;группу произвольные объекты.
+												<p class="warn-cmt">Объекты внутри&nbsp;<span class="param pick">Smart&nbsp;Object</span> обработаны не&nbsp;будут!</p>
+											</li>
+										</ul>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td>
+									<ul>
+										<li>Поддерживает полнорастровый переход. (Подробнее:&nbsp;<a class="cut" href="#insetFR"></a>.)</li>
+									</ul>
+								</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td colspan="2">
+									<div><a name="insetFR"></a>
+										<ul>
+											<li>Создайте врезку с&nbsp;границами маски в&nbsp;состоянии <span class="param tag">OUT</span>, лежащими за&nbsp;пределами соответствующего <span class="param tag a">OVER</span>.</li>
+											<li><span class="param tag">INSET</span> можно сочетать с&nbsp;собственным <span class="param tag a">OVER</span>. При&nbsp;аккуратном согласовании таймингов движение камеры плавно переходит в&nbsp;анимацию раскрытия полнорастровой врезки.</li>
+										</ul>
+										<p class="warn-cmt">При&nbsp;использовании полнорастровой врезки все объекты, относящиеся к&nbsp;основной карте, рекомендуется поместить в&nbsp;группу с&nbsp;таймингом окончания <span class="param opt">Te</span> после&nbsp;раскрытия врезки, во&nbsp;избежание снижения производительности.</p>
+									</div>
+								</td>
+							</tr>
+						</table></div>
+					</li>
+					<li>Групповые теги специального назначения: <span class="param tag">ROUTE</span>, <span class="param tag">BUBBLE</span>, <span class="param tag">SELECT</span>. (<a href="#taglist">см.&nbsp;п.3</a>)</li>
+				</ol>
+				<p class="warn-cmt">
+					При&nbsp;необходимости любой элемент с&nbsp;достаточно простой структурой и&nbsp;анимацией может быть использован как&nbsp;контейнер для&nbsp;вложенных элементов, если&nbsp;того требует логика визуализации (например, <span class="param tag a">ITEM</span>).
+				</p>
+<!-- --------------------------------------------------------------------------------------------------------------- -->
+				<li><a name="camera"></a>
+					<span class="mark">Кадрирование и&nbsp;движение камеры</span> определяется слоями с&nbsp;тегом <span class="param tag r">OVER</span>. Каждый из&nbsp;них интерпретируется как&nbsp;прямоугольная рамка, совпадающая с&nbsp;границами кадра.
+					<div><table>
+					<!-- <div style="width: 100%;"><table style="width: 100%;"> -->
+						<tr>
+							<td><img alt="over"/></td>
+							<td>
+								<ol>
+									<li>Слой может быть растровым. Специальный шейповый <span class="param tag">OVER</span> со&nbsp;стрелкой (<a href="#example">см.&nbsp;п.0.4.5</a>) поддерживает плоское вращение камеры и&nbsp;анимации любых объектов под&nbsp;ним. Слой не&nbsp;должен быть группой.</li>
+									<li><span class="param tag">OVER</span> может располагаться на&nbsp;любом уровне вложенности. Камера анимируется относительно фактического момента его&nbsp;начала. (Примечания:&nbsp;<a class="cut" href="#oversort"></a>.)</li>
+								</ol>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<!-- <ol><li class="nobefore"> -->
+								<div><a name="oversort"></a>
+									<p>Последовательность перемещений камеры определяется порядком сортировки объектов <span class="param tag">OVER</span>, независимо от&nbsp;группировки, по&nbsp;следующим параметрам (в&nbsp;порядке приоритета):</p>
+									<ul>
+										<li>глобальный (пересчитанный в&nbsp;тайминг заглавной композиции) момент начала появления;</li>
+										<li>тег идентификации <span class="param opt">VAR</span> (по&nbsp;возрастанию).</li>
+									</ul>
+									<p>
+										Временной промежуток между&nbsp;соседними <span class="param tag">OVER</span> не&nbsp;может быть меньше или&nbsp;равен длительности перехода на&nbsp;первый из&nbsp;них. Стандартные параметры для&nbsp;конкретной конфигурации задаются настройками <span class="param pick">config.camtr</span> (длительность перехода) и&nbsp;<span class="param pick">config.camdl</span> (задержка под&nbsp;шапку).
+										(Например, при&nbsp;типовых значениях <span class="param spick">camtr : <span>1.5</span></span> и&nbsp;<span class="param spick">camdl : <span>2</span></span> не&nbsp;будут проанимированы конструкции <span class="param tag">OVER</span>_<span class="param opt">[<span>3</span>]</span> + <span class="param tag">OVER</span>_<span class="param opt">[<span>4.5</span>]</span> или&nbsp;<span class="param tag">OVER</span>_<span class="param opt">[<span>0</span>]</span> + <span class="param tag">OVER</span>_<span class="param opt">[<span>3.5</span>]</span>.)
+									</p>
+								</div>
+								<!-- </li></ol> -->
+							</td>
+						</tr>
+						<tr>
+							<td><!-- <img alt="map"/> --></td>
+							<td>
+								<ol style="counter-reset: list3 2;">
+									<li>Специальный групповой обработчик <span class="param tag">MAP</span> позволяет анимировать слой как&nbsp;карту, с&nbsp;учётом всех оверов внутри, вне&nbsp;зависимости от&nbsp;проведенной анимации. (Подробнее:&nbsp;<a class="cut" href="#map"></a>.)</li>
+								</ol>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<!-- <ol><li class="nobefore"> -->
+								<div><a name="map"></a>
+									<ul>
+										<li>Обработчик <span class="param tag">MAP</span> должен вызываться только из&nbsp;корневой композиции с&nbsp;камерой, т.к.&nbsp;каждый <span class="param tag">OVER</span> должен быть связан с&nbsp;камерой цепочкой прекомпозов.</li>
+										<li>Для&nbsp;корректных переходов между несколькими картами их&nbsp;следует обрабатывать в&nbsp;хронологическом порядке с&nbsp;учётом тайминга вложенных <span class="param tag">OVER</span> (последовательно или&nbsp;контролируя порядок выделения слоёв).</li>
+										<li>Обработчик предназначен для&nbsp;использования в&nbsp;смешанном режиме (внутри присутствуют анимированные объекты).</li>
+										<li>Если&nbsp;все&nbsp;объекты внутри находятся в&nbsp;исходном состоянии, действия обработчика идентичны обычной именованной или&nbsp;неименованной группе без&nbsp;параметров.</li>
+										<li>Повторный вызов выполняет принудительное закрытие всех элементов внутри карты, в&nbsp;соответствии <a href="#solo">с&nbsp;п.1.2.2</a>.</li>
+									</ul>
+									<p class="warn-cmt">Действия <span class="param tag">MAP</span> занимают больше времени, по&nbsp;сравнению с&nbsp;иными обработчиками.</p>
+								</div>
+								<!-- </li></ol> -->
+							</td>
+						</tr>
+					</table></div>
+					<p class="warn-cmt">
+						На&nbsp;текущий момент реализованы<!-- допускаются --> только перелёты и&nbsp;подлёты/отлёты стандартной длительности, указанной в&nbsp;конфигурации. Панорамирование не&nbsp;поддерживается.
+						<br/>При необходимости положение ключей перемещения камеры можно отредактировать вручную.
+						<br/>После применения скрипта следует проверить положение камеры на&nbsp;первом ключе и&nbsp;поправить по&nbsp;оси&nbsp;Z, если&nbsp;края карты попадают в&nbsp;кадр.
+					</p>
+				</li>
+<!-- --------------------------------------------------------------------------------------------------------------- -->
+				<li><a name="takeout"></a>
+					<p>Объекты, не&nbsp;имеющие фактической привязки к&nbsp;карте (например, заголовки или&nbsp;инфоплашки), можно вынести <span class="mark">из&nbsp;пространства карты в&nbsp;пространство объектива</span>, т.е.&nbsp;привязать к&nbsp;плоскости экрана. Перенос осуществляется с&nbsp;помощью предопределённого значения <span class="param tag r">INFO</span> для&nbsp;тега идентификации <span class="param opt">VAR</span>. (Примечание:&nbsp;<a class="cut" href="#minfo"></a>.)</p>
+					<div><a name="minfo"></a>
+						<ul>
+							<li>Опция создает полную копию анимированного объекта в&nbsp;отдельной плоской неподвижной композиции <span class="param pick">Map_Info</span>, при&nbsp;этом оригинал на&nbsp;карте отключается (например, <span class="param sopt"><span class="param tag">HEADER</span>_<span>INFO</span></span>).</li>
+							<li>Позиционирование и масштабирование копии производится по&nbsp;ближайшему (слева в&nbsp;тайминге) <span class="param tag a">OVER</span> в&nbsp;размер экрана.</li>
+							<p class="warn-cmt">В&nbsp;режиме <span class="param pick">SOLO</span> соответствующий <span class="param tag a">OVER</span> должен&nbsp;быть либо&nbsp;выделен первым, либо&nbsp;помещен внутрь объекта.</p>
+						</ul>
+					</div>
+				</li>
+			</ol></ol>
+		</td>
+	</tr>
+<!-- --------------------------------------------------------------------------------------------------------------- -->
+	<tr>
+		<td colspan="3"><a name="taglist"></a>
+			<ol style="counter-reset: list1 2;">
+				<li>
+					<h3>Доступные теги обработчиков TAG:</h3>
+				</li>
+			</ol>
+		</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td colspan="2">
+			<ul>
+				<li>Оформление <a href="AEMAPs RIK Elements.html" target="_blank"><strong>РИК</strong></a></li>
+				<li>Оформление <a href="AEMAPs M24 Elements.html" target="_blank"><strong>М24</strong></a></li></li>
+			</ul>
+		</td>
+	</tr>
+<!-- --------------------------------------------------------------------------------------------------------------- -->
+	<tr>
+		<td colspan="3"><a name="notes"></a>
+			<ol style="counter-reset: list1 3;">
+				<li><h3><!-- Notes -->Примечания:</h3></li>
+			</ol>
+		</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td colspan="2">
+			<ol style="counter-reset: list1 4;"><ol>
+			<!-- <div><ul> -->
+				<li>
+					<!-- (Следует иметь в&nbsp;виду некоторые моменты:&nbsp;<a class="cut" href="#import"></a>.) -->
+					<!-- <div><a name="import"></a> -->
+						<a name="import"></a>
+						<!-- <h4>Особенности импорта проекта в&nbsp;АЕ:</h4> -->
+						<span>Особенности импорта проекта в&nbsp;After&nbsp;Effects:</span>
+						<ul>
+							<li>Очищайте закладку <span class="param pick">Paths</span> в&nbsp;Photoshop от&nbsp;лишних элементов! Это&nbsp;значительно разгрузит проект и&nbsp;позволит избежать ряда ошибок импорта.</li>
+							<li>After&nbsp;Effects запоминает последние настройки импорта. В&nbsp;связи с&nbsp;этим возможна ситуация, когда <span class="param pick">.psd</span> импортируется с&nbsp;флагом <span class="param pick">Merge layer Styles into Footage</span>, что&nbsp;приводит к&nbsp;неправильному расчёту геометрии и&nbsp;некорректной анимации (вылет из&nbsp;левого верхнего угла). Единственным решением является вручную импортировать в&nbsp;After&nbsp;Effects произвольный <span class="param pick">.psd</span> с&nbsp;необходимым флагом <span class="param pick">Editable Layer Styles</span> и&nbsp;повторить сборку.</li>
+							<li>Режимы наложения во&nbsp;вложенных композициях&nbsp;AE сохраняются (работают сквозным образом), если&nbsp;включить флаг <span class="param pick">Collapse Transformations</span> <img alt="collapse"/> на&nbsp;слое&#8209;контейнере.</li>
+							<li>
+								<p>При&nbsp;включённом <span class="param pick">Collapse Transformations</span> на&nbsp;слое&#8209;контейнере и&nbsp;наличии активных стилей <span class="param spick">Layer Styles</span> на&nbsp;слоях во&nbsp;вложенной композиции некорректно транслируются следующие свойства:</p>
+								<div><table class="grid">
+									<tr>
+										<td><span class="param spick">Transform/Opacity</span>:</td>
+										<td>Промежуточные значения при&nbsp;анимации.</td>
+										<td>Исправляется раздельным управлением на&nbsp;всех слоях внутри контейнера.</td>
+									</tr>
+									<tr>
+										<td><span class="param spick">Layer Styles/Stroke</span>:</td>
+										<td>Растрирование при&nbsp;развороте слоя в&nbsp;3D.</td>
+										<td>Исправляется выносом контура из&nbsp;вложенной композиции на&nbsp;уровень выше и&nbsp;Parent к&nbsp;контейнеру.</td>
+									</tr>
+								</table></div>
+							</li>
+							<li>After&nbsp;Effects не&nbsp;импортирует стили <span class="param spick">Layer Styles</span> для&nbsp;групп Photoshop. Для&nbsp;решения этой проблемы можно создать сервисный слой <span class="param tag">_style</span> внутри&nbsp;группы с&nbsp;копией её&nbsp;стилей. При&nbsp;копировании стилей в&nbsp;Photoshop параметры <span class="param spick">Layer Styles/Blending Options</span> не&nbsp;переносятся, их&nbsp;следует перенастроить вручную.</li>
+						</ul>
+					<!-- </div> -->
+				</li>
+				<!-- <li>
+					<a name="undo"></a>
+					Функционал отмены последнего действия <span class="param spick">Cancel operation</span>, <span class="param pick">Undo AEMAPs</span> в&nbsp;режиме <span class="param pick">AUTO</span> не&nbsp;действует.
+				</li> -->
+				<li>Не&nbsp;используйте в&nbsp;числовых значениях лишних символов. Разделителем целой и&nbsp;дробной части является точка. Замена разделителя на&nbsp;запятую и&nbsp;отбивка разрядов пробелами происходит на&nbsp;этапе анимации.</li>
+			<!-- </ul></div> -->
+			</ol></ol>
+		</td>
+	</tr>
+<!-- ftr -->
+<!-- --------------------------------------------------------------------------------------------------------------- -->
+</table>
+<!-- --------------------------------------------------------------------------------------------------------------- -->
+</td></tr></table>
+<!-- btn -->
+</body>
+</html>
