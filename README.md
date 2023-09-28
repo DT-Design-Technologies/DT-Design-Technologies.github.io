@@ -6,6 +6,8 @@
 # Project Documentation
 <br/>
 
+[AEMAPs Release Notes](man/AEMAPs%20Release%20Notes.html)
+
 [AEMAPs User Guide](man/AEMAPs%20User%20Guide.html)  
 [AEMAPs RIK Elements Guide](man/AEMAPs%20RIK%20Elements.html)  
 [AEMAPs M24 Elements Guide](man/AEMAPs%20M24%20Elements.html)
