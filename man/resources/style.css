@@ -62,7 +62,7 @@
 		box-shadow: none;
 		cursor: inherit;
 	}
-	ol ol ol td:not(:last-of-type) img ~ span {
+	ol ol ol td:not(:last-of-type) img + span {
 		visibility: hidden;
 		display: block;
 		position: absolute;
@@ -605,12 +605,14 @@
 	}
 	.opt {
 		font-weight: bold;
+		color: black;		/*hsl(220, 50%, 5%);*/
 		--le: "";
 		--re: "";
 		--hm: 0;
 	}
 	.sopt {
 		font-weight: bold;
+		color: black;
 		--le: "\00AB";
 		--re: "\00BB";
 		--hm: .1em /*.75em*/;
