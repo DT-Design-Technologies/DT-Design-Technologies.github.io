@@ -471,7 +471,7 @@
 									<p>Группа геометрически зависимых (связанных единым центром и&nbsp;последовательной анимацией) объектов самостоятельного смыслового обозначения на&nbsp;карте.</p>
 									<p class="warn-cmt">Например, пунсон +&nbsp;метка +&nbsp;инфоплашка.</p>
 									<ul>
-										<li>Поддерживает следующие теги: <span class="param tag">POINT</span>, <span class="param tag">PUNCH</span>, <span class="param tag">LABEL</span>, <span class="param tag">CAPTION</span>, <span class="param tag">VALUE</span>, <span class="param tag">SIGN</span>, <span class="param tag">ROUTE</span>, <span class="param tag">BUBBLE</span>. (<a href="#taglist">см.&nbsp;п.3</a>)</li>
+										<li>Поддерживает следующие теги: <span class="param tag">POINT</span>, <span class="param tag">PUNCH</span>, <span class="param tag">LABEL</span>, <span class="param tag">CAPTION</span>, <span class="param tag">VALUE</span>, <span class="param tag">SIGN</span>, <span class="param tag">ROUTE</span>, <span class="param tag">BUBBLE</span>. (В&nbsp;зависимости от&nbsp;выбранной конфигурации, <a href="#taglist">см.&nbsp;п.3</a>)</li>
 										<li>Поддерживает автомасштабирование содержимого для сохранения визуального размера при движении камеры. (Подробнее:&nbsp;<a class="cut" href="#azoom"></a>.)</li>
 										<li>Вложенность не&nbsp;допускается.</li>
 									</ul>
@@ -488,6 +488,32 @@
 										</ul>
 										<p class="warn-cmt">Опция высоконагруженная и&nbsp;может отнимать много ресурсов, поскольку геометрия связанных объектов пересчитывается в&nbsp;каждом фрейме.</p>
 									</div>
+								</td>
+							</tr>
+						</table></div>
+					</li>
+					<li>
+						<div><table>
+							<tr>
+								<td><span class="param tag r">SELECT</span>:</td>
+								<td><img alt="select1"/></td>
+								<td>
+									<p>Управляемый визуальный акцент.</p>
+									<p class="warn-cmt">Например, последовательная подсветка элементов списка или&nbsp;любых иных объектов.</p>
+									<ul>
+										<li>Может объединять как&nbsp;копии элементов с&nbsp;альтернативной раскраской, так&nbsp;и&nbsp;самостоятельные объекты.</li>
+										<li>После&nbsp;обработки переключение подсветки осуществляется с&nbsp;помощью нумерованных маркеров управляющего слоя в&nbsp;произвольном порядке.</li>
+										<li>Собственная анимация элементов не&nbsp;выполняется.</li>
+									</ul>
+								</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td><img alt="select2"/></td>
+								<td>
+									<ul>
+										<li>В&nbsp;случае, если&nbsp;группа содержит единственный элемент, реализуется функционал анимации мерцания с&nbsp;управлением через&nbsp;именованные маркеры.</li>
+									</ul>
 								</td>
 							</tr>
 						</table></div>
@@ -575,7 +601,7 @@
 							</tr>
 						</table></div>
 					</li>
-					<li>Групповые теги специального назначения: <span class="param tag">ROUTE</span>, <span class="param tag">BUBBLE</span>, <span class="param tag">SELECT</span>. (<a href="#taglist">см.&nbsp;п.3</a>)</li>
+					<li>Групповые теги специального назначения: <span class="param tag">ROUTE</span>, <span class="param tag">BUBBLE</span> (<a href="#taglist">см.&nbsp;п.3</a>).</li>
 				</ol>
 				<p class="warn-cmt">
 					При&nbsp;необходимости любой элемент с&nbsp;достаточно простой структурой и&nbsp;анимацией может быть использован как&nbsp;контейнер для&nbsp;вложенных элементов, если&nbsp;того требует логика визуализации (например, <span class="param tag a">ITEM</span>).
