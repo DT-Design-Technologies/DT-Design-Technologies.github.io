@@ -141,10 +141,11 @@
 									<td>
 										<p>Текстовый счётчик.</p>
 										<ul>
-											<li>Требуется единственный внутренний элемент с&nbsp;тегом <span class="param tag">TEXT</span>.</li>
+											<li>Может быть текстовым слоем или&nbsp;требуется единственный внутренний элемент с&nbsp;тегом <span class="param tag">TEXT</span>.</li>
 											<li>Текст должен содержать только цифры, точность счётчика определяется форматом указанного числа (<span class="param sopt"><span>25</span></span>, <span class="param sopt"><span>25.0</span></span>, <span class="param sopt"><span>0.25</span></span>). Элементы оформления не&nbsp;анимируются.</li>
 											<p class="warn">Разделителем целой и&nbsp;дробной части значений является точка!</p>
 											<p class="warn-cmt">При&nbsp;необходимости указать единицы, используйте дополнительный слой.</p>
+											<!-- <li>Поддерживает внешние контейнеры <span class="param tag a">BUBBLE</span> и&nbsp;<span class="param tag a">BAR</span>.</li> -->
 										</ul>
 									</td>
 								</tr>
@@ -423,12 +424,14 @@
 										<div><a name="scounter"></a>
 											<ul>
 												<li>
-													Внутренний элемент с&nbsp;тегом <span class="param tag A">TEXT</span> (при&nbsp;наличии) интерпретируется и&nbsp;анимируется как&nbsp;счётчик. Текст должен содержать только цифры, точность счётчика определяется форматом указанного числа (<span class="param sopt"><span>25</span></span>, <span class="param sopt"><span>25.0</span></span>, <span class="param sopt"><span>0.25</span></span>).
-													<p class="warn">Разделителем целой и&nbsp;дробной части значений является точка!</p>
-													<p class="warn-cmt">При&nbsp;необходимости указать единицы, используйте дополнительный слой.</p>
+													Внутренний элемент с&nbsp;тегом <span class="param tag a">COUNTER</span> (при&nbsp;наличии) интерпретируется и&nbsp;анимируется как&nbsp;счётчик.
+													<!-- Текст должен содержать только цифры, точность счётчика определяется форматом указанного числа (<span class="param sopt"><span>25</span></span>, <span class="param sopt"><span>25.0</span></span>, <span class="param sopt"><span>0.25</span></span>). -->
+													<!-- <p class="warn">Разделителем целой и&nbsp;дробной части значений является точка!</p> -->
+													<!-- <p class="warn-cmt">При&nbsp;необходимости указать единицы, используйте дополнительный слой.</p> -->
+													<p class="warn-cmt">Счётчик должен находиться на&nbsp;первом уровне вложенности и&nbsp;не&nbsp;может быть группой.</p>
 												</li>
 												<li>
-													Внутренние элементы <span class="param tag">TEXT</span> и&nbsp;дополнительные <span class="param tag">SUB</span>, у&nbsp;которых указано предопределённое значение <span class="param tag">LNK</span> для&nbsp;тега идентификации <span class="param opt">VAR</span>, интерпретируются как&nbsp;указатель, т.е.&nbsp;будут перемещаться вместе с&nbsp;краем столбика (<span class="param sopt"><span class="param tag">SUB</span>_<span>LNK</span></span> или&nbsp;<span class="param sopt"><span class="param tag">TEXT</span>_<span>LNK</span></span>).
+													Счётчик, а&nbsp;также внутренние элементы <span class="param tag">TEXT</span> и&nbsp;<!-- дополнительные  --><span class="param tag">SUB</span>, у&nbsp;которых указано предопределённое значение <span class="param tag">LNK</span> для&nbsp;тега идентификации <span class="param opt">VAR</span>, интерпретируются как&nbsp;указатель, т.е.&nbsp;будут перемещаться вместе с&nbsp;краем столбика (<span class="param sopt"><span class="param tag">SUB</span>_<span>LNK</span></span> или&nbsp;<span class="param sopt"><span class="param tag">TEXT</span>_<span>LNK</span></span>).
 												</li>
 											</ul>
 										</div>
@@ -492,9 +495,11 @@
 									<td></td>
 									<td colspan="2">
 										<div><a name="ccounter"></a>
-											Внутренний элемент с&nbsp;тегом <span class="param tag A">TEXT</span> (при&nbsp;наличии)<!-- , у&nbsp;которого указано предопределённое значение <span class="param tag">LNK</span> для&nbsp;тега идентификации <span class="param opt">VAR</span>, --> интерпретируется и&nbsp;анимируется как&nbsp;счётчик<!--  (<span class="param sopt"><span class="param tag">TEXT</span>_<span>LNK</span></span>) -->. Текст должен содержать только цифры, точность счётчика определяется форматом указанного числа (<span class="param sopt"><span>25</span></span>, <span class="param sopt"><span>25.0</span></span>, <span class="param sopt"><span>0.25</span></span>).
-											<p class="warn">Разделителем целой и&nbsp;дробной части значений является точка!</p>
-											<p class="warn-cmt">При&nbsp;необходимости указать единицы, используйте дополнительный слой.</p>
+											Внутренний элемент с&nbsp;тегом <span class="param tag a">COUNTER</span> (при&nbsp;наличии)<!-- , у&nbsp;которого указано предопределённое значение <span class="param tag">LNK</span> для&nbsp;тега идентификации <span class="param opt">VAR</span>, --> интерпретируется и&nbsp;анимируется как&nbsp;счётчик<!--  (<span class="param sopt"><span class="param tag">TEXT</span>_<span>LNK</span></span>) -->.
+											<!-- Текст должен содержать только цифры, точность счётчика определяется форматом указанного числа (<span class="param sopt"><span>25</span></span>, <span class="param sopt"><span>25.0</span></span>, <span class="param sopt"><span>0.25</span></span>). -->
+											<!-- <p class="warn">Разделителем целой и&nbsp;дробной части значений является точка!</p> -->
+											<!-- <p class="warn-cmt">При&nbsp;необходимости указать единицы, используйте дополнительный слой.</p> -->
+											<p class="warn-cmt">Счётчик должен находиться на&nbsp;первом уровне вложенности и&nbsp;не&nbsp;может быть группой.</p>
 										</div>
 									</td>
 								</tr>
@@ -603,7 +608,7 @@
 												Сектора в&nbsp;составе круговой диаграммы обрабатываются групповым образом с&nbsp;помощью внешнего контейнера <span class="param tag a">BUBBLE</span>.
 												<p class="warn-cmt">Для&nbsp;визуализации диаграмм с&nbsp;суммой значений более 100% используйте сектора с&nbsp;прогрессивным радиусом.</p>
 											</li>
-											<li>При&nbsp;наличии в&nbsp;контейнере счётчика (<span class="param tag">TEXT</span>)<!--  (<span class="param sopt"><span class="param tag">TEXT</span>_<span class="param tag">LNK</span></span>) --> сектора анимируются синхронно со&nbsp;счётчиком, в&nbsp;противном случае последовательно.</li>
+											<li>При&nbsp;наличии в&nbsp;контейнере счётчика (<span class="param tag">COUNTER</span>)<!--  (<span class="param sopt"><span class="param tag">TEXT</span>_<span class="param tag">LNK</span></span>) --> сектора анимируются синхронно со&nbsp;счётчиком, в&nbsp;противном случае последовательно.</li>
 										</ul>
 									</td>
 								</tr>
