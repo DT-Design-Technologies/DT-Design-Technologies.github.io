@@ -16,7 +16,7 @@
 <!-- --------------------------------------------------------------------------------------------------------------- -->
 <table>
 <!-- hdr -->
-<div id="version">Оформление M24<br/>актуальность 08.2023</div>
+<div id="version">Оформление M24<br/>актуальность 04.2024</div>
 <!-- --------------------------------------------------------------------------------------------------------------- -->
 <!-- --------------------------------------------------------------------------------------------------------------- -->
 	<tr>
@@ -196,7 +196,7 @@
 									<td>
 										<p>Текстовый счётчик.</p>
 										<ul>
-											<li>Требуется единственный внутренний элемент с&nbsp;тегом <span class="param tag">TEXT</span>.</li>
+											<li>Может быть текстовым слоем или&nbsp;требуется единственный внутренний элемент с&nbsp;тегом <span class="param tag">TEXT</span>.</li>
 											<li>Текст должен содержать только цифры, точность счётчика определяется форматом указанного числа (<span class="param sopt"><span>25</span></span>, <span class="param sopt"><span>25.0</span></span>, <span class="param sopt"><span>0.25</span></span>). Элементы оформления не&nbsp;анимируются.</li>
 											<p class="warn">Разделителем целой и&nbsp;дробной части значений является точка!</p>
 											<p class="warn-cmt">При&nbsp;необходимости указать единицы, используйте дополнительный слой.</p>
@@ -274,6 +274,115 @@
 					</ol>
 				</li>
 <!-- --------------------------------------------------------------------------------------------------------------- -->
+				<li><a name="square"></a>
+					<span class="mark"><h4>Табличные элементы, столбчатые диаграммы</h4></span>
+					<p>Таблицы анимируются с&nbsp;использованием вложенных <span class="param tag A">GROUP</span> и&nbsp;функционала <a href="AEMAPs User Guide.html#naming">ручного</a> и&nbsp;<a href="AEMAPs User Guide.html#atiming">автоматического</a> таймингов.</p>
+					<p class="warn-cmt">Например, можно группировать ячейки в&nbsp;строки, а&nbsp;строки в&nbsp;столбец, или&nbsp;наоборот, ячейки в&nbsp;столбцы, а&nbsp;столбцы в&nbsp;строку, или&nbsp;более сложным блочным образом, используя разные задержки.</p>
+					<p>Табличные элементы могут содержать любые другие подходящие теги в&nbsp;качестве ячеек или&nbsp;внутри них.</p>
+					<p class="warn-cmt">Например, вставлять в&nbsp;качестве ячеек выпадающий <span class="param tag a">VALUE</span> или&nbsp;<span class="param tag a">TITLE</span> без&nbsp;подложки (<a href="AEMAPs User Guide.html#example">см.&nbsp;п.0.4.5</a>).</p>
+					<ol style="--pw: 75px; --pw2: 110px; --tm: 1px;">
+						<li>
+							<div><table>
+								<tr>
+									<td><span class="param tag r">ITEM</span>:</td>
+									<td><img alt="item"/></td>
+									<td>
+										<p>Ячейка таблицы.</p>
+										<ul>
+											<li>Требуется <a href="AEMAPs User Guide.html#struct">геометрия</a> (предполагается прямоугольная).</li>
+											<li>Поддерживает корректировку направления анимации. (Подробнее:&nbsp;<a class="cut" href="#item"></a>.)</li>
+											<li>Может быть использован как&nbsp;контейнер для&nbsp;других элементов. 
+												<!-- (Например, <span class="param tag">ID</span> или&nbsp;<span class="param tag">BAR</span>). -->
+											</li>
+										</ul>
+									</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td colspan="2">
+										<div><a name="item"></a>
+											Одно из&nbsp;осевых направлений <span class="param tag">L</span>/<span class="param tag">T</span>/<span class="param tag">R</span>/<span class="param tag">B</span> можно указать в&nbsp;теге идентификации <span class="param opt">VAR</span> (<span class="param sopt"><span class="param tag">ITEM</span>_<span>L</span></span> или&nbsp;<span class="param sopt"><span class="param tag">ITEM</span>_<span>L</span>-01</span>). По&nbsp;умолчанию используется значение&nbsp;<span class="param tag">B</span>.
+										</div>
+									</td>
+								</tr>
+							</table></div>
+						</li>
+						<li>
+							<div><table>
+								<tr>
+									<td><span class="param tag r">BAR</span>:</td>
+									<td><img alt="bar"/></td>
+									<td>
+										<p>Инфографический столбик.</p>
+										<ul>
+											<li>Требуется <a href="AEMAPs User Guide.html#struct">геометрия</a> (предполагается прямоугольная).</li>
+											<p class="warn-cmt">Учитывается только первый шейп.</p>
+												<p></p>
+											<li>Поддерживает корректировку направления анимации. (Подробнее:&nbsp;<a class="cut" href="#bar"></a>.)</li>
+											<li>Поддерживает анимацию счётчика и указателя. (Подробнее:&nbsp;<a class="cut" href="#scounter"></a>.)</li>
+											<li>Может находиться внутри <span class="param tag a">ITEM</span> (Например, если&nbsp;под&nbsp;столбиком нужно разместить статичную подложку).</li>
+										</ul>
+									</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td colspan="2">
+										<div><a name="bar"></a>
+											<ul>
+												Одно из&nbsp;осевых направлений <span class="param tag">L</span>/<span class="param tag">T</span>/<span class="param tag">R</span>/<span class="param tag">B</span> можно указать в&nbsp;теге идентификации <span class="param opt">VAR</span> (<span class="param sopt"><span class="param tag">BAR</span>_<span>L</span></span> или&nbsp;<span class="param sopt"><span class="param tag">BAR</span>_<span>L</span>-01</span>). По&nbsp;умолчанию используется направление вдоль&nbsp;длинной стороны снизу вверх <span class="param tag">T</span> или&nbsp;слева направо <span class="param tag">R</span>.
+											</ul>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td colspan="2">
+										<div><a name="scounter"></a>
+											<ul>
+												<li>
+													Внутренний элемент с&nbsp;тегом <span class="param tag a">COUNTER</span> (при&nbsp;наличии) интерпретируется и&nbsp;анимируется как&nbsp;счётчик.
+													<p class="warn-cmt">Счётчик должен находиться на&nbsp;первом уровне вложенности и&nbsp;не&nbsp;может быть группой.</p>
+												</li>
+												<li>
+													Счётчик, а&nbsp;также внутренние элементы <span class="param tag">TEXT</span> и&nbsp;<!-- дополнительные  --><span class="param tag">SUB</span>, у&nbsp;которых указано предопределённое значение <span class="param tag">LNK</span> для&nbsp;тега идентификации <span class="param opt">VAR</span>, интерпретируются как&nbsp;указатель, т.е.&nbsp;будут перемещаться вместе с&nbsp;краем столбика (<span class="param sopt"><span class="param tag">SUB</span>_<span>LNK</span></span> или&nbsp;<span class="param sopt"><span class="param tag">TEXT</span>_<span>LNK</span></span>).
+												</li>
+											</ul>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td><!-- <img alt="bar2"/> --></td>
+									<td>
+										<ul>
+											<li>
+												Поддерживает корректировку диапазона анимации (пропорциональная величина в&nbsp;составе столбчатой диаграммы). (Подробнее:&nbsp;<a class="cut" href="#bars"></a>.)
+												<p class="warn-cmt">Функционал доступен только для&nbsp;элементов верхнего уровня, расположенных внутри&nbsp;внешнего контейнера&nbsp;<span class="param tag A">GROUP</span>.</p>
+											</li>
+										</ul>
+									</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td colspan="2">
+										<div><a name="bars"></a>
+											<!-- Для&nbsp;визуализации разделения используйте внешний контейнер <span class="param tag A">GROUP</span> с&nbsp;указанием предопределённого значения <span class="param tag">GAP</span> для&nbsp;тега идентификации <span class="param opt">VAR</span>. (<span class="param sopt"><span class="param tag">GROUP</span>_<span>GAP</span></span> или&nbsp;<span class="param sopt"><span class="param tag">GROUP</span>_AUTO+0<span>,GAP</span></span>). -->
+											<ul>
+												<li>Группа может содержать произвольный набор объектов. Функционал будет реализован только для&nbsp;элементов&nbsp;<span class="param tag">BAR</span>. Взаимное расположение столбиков значения не&nbsp;имеет.</li>
+												<li>Для&nbsp;пропорционального отображения диаграммы необходимо использовать одно из&nbsp;предопределённых значений <span class="param tag">BARV</span>/<span class="param tag">BARH</span> (вертикальные/горизонтальные) для&nbsp;тега идентификации <span class="param opt">VAR</span> внешнего контейнера (<span class="param sopt"><span class="param tag">GROUP</span>_AUTO+0<span>,BARV</span></span>). Осевые направления, указанные для&nbsp;отдельных элементов, будут проигнорированы.</li>
+												<li>
+													Истинное значение величины столбика можно указать в&nbsp;теге идентификации <span class="param opt">VAR</span> после знака равенства (<span class="param sopt"><span class="param tag">BAR</span>_1<span>=70</span></span>). При&nbsp;отсутствии этого параметра значение будет взято из&nbsp;счётчика.
+													<p class="warn">Разделителем целой и&nbsp;дробной части значений является точка!</p>
+												</li>
+											</ul>
+										</div>
+									</td>
+								</tr>
+							</table></div>
+						</li>
+					</ol>
+				</li>
+<!-- --------------------------------------------------------------------------------------------------------------- -->
 				<li><a name="circle"></a>
 					<span class="mark"><h4>Пузырьковые/круговые диаграммы</h4></span>
 					<ol style="--pw: 75px; --pw2: 110px; --tm: 1px;">
@@ -291,6 +400,7 @@
 												<p class="warn-cmt">Может иметь квадратную или&nbsp;круглую форму. Учитывается только первый шейп.</p>
 												<p></p>
 											</li>
+											<li>Поддерживает внешний контейнер <span class="param tag A">TICKET</span>.</li>
 											<li>Поддерживает анимацию счётчика. (Подробнее:&nbsp;<a class="cut" href="#ccounter"></a>.)</li>
 										</ul>
 									</td>
@@ -299,9 +409,31 @@
 									<td></td>
 									<td colspan="2">
 										<div><a name="ccounter"></a>
-											Внутренний элемент с&nbsp;тегом <span class="param tag A">TEXT</span> (при&nbsp;наличии), у&nbsp;которого указано предопределённое значение <span class="param tag">LNK</span> для&nbsp;тега идентификации <span class="param opt">VAR</span>, интерпретируется и&nbsp;анимируется как&nbsp;счётчик (<span class="param sopt"><span class="param tag">TEXT</span>_<span>LNK</span></span>). Текст должен содержать только цифры, точность счётчика определяется форматом указанного числа (<span class="param sopt"><span>25</span></span>, <span class="param sopt"><span>25.0</span></span>, <span class="param sopt"><span>0.25</span></span>).
-											<p class="warn">Разделителем целой и&nbsp;дробной части значений является точка!</p>
-											<p class="warn-cmt">При&nbsp;необходимости указать единицы, используйте дополнительный слой.</p>
+											Внутренний элемент с&nbsp;тегом <span class="param tag a">COUNTER</span> (при&nbsp;наличии) интерпретируется и&nbsp;анимируется как&nbsp;счётчик.
+											<p class="warn-cmt">Счётчик должен находиться на&nbsp;первом уровне вложенности и&nbsp;не&nbsp;может быть группой.</p>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td><img alt="bubble4"/></td>
+									<td>
+										<ul>
+											<li>
+												Поддерживает визуальное разделение при&nbsp;взаимном наложении элементов. (Подробнее:&nbsp;<a class="cut" href="#gap"></a>.)
+												<p class="warn-cmt">Функционал доступен только для&nbsp;элементов верхнего уровня, расположенных внутри&nbsp;внешнего контейнера <span class="param tag A">GROUP</span> и&nbsp;не&nbsp;содержащих секторов.</p>
+											</li>
+										</ul>
+									</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td colspan="2">
+										<div><a name="gap"></a>
+											<ul>
+												<li>Группа может содержать произвольный набор объектов. Функционал будет реализован только для&nbsp;пересекающихся <span class="param tag">BUBBLE</span>. Элементы с&nbsp;большей площадью перекрываются элементами с&nbsp;меньшей.</li>
+												<li>Для&nbsp;регулировки ширины зазора можно использовать предопределённое значение <span class="param tag">GAP</span> для&nbsp;тега идентификации <span class="param opt">VAR</span> внешнего контейнера. Значение в&nbsp;пикселях следует указать после&nbsp;знака равенства (<span class="param sopt"><span class="param tag">GROUP</span>_AUTO=0.5<span>,GAP</span><span>=5</span></span>). В&nbsp;отсутствие этого параметра используется значение по&nbsp;умолчанию, соответствующее <span class="param pick">config.gmdelta</span>.</li>
+											</ul>
 										</div>
 									</td>
 								</tr>
@@ -371,7 +503,7 @@
 												Сектора в&nbsp;составе круговой диаграммы обрабатываются групповым образом с&nbsp;помощью внешнего контейнера <span class="param tag a">BUBBLE</span>.
 												<p class="warn-cmt">Для&nbsp;визуализации диаграмм с&nbsp;суммой значений более&nbsp;100% используйте сектора с&nbsp;прогрессивным радиусом.</p>
 											</li>
-											<li>При&nbsp;наличии в&nbsp;контейнере счётчика (<span class="param sopt"><span class="param tag">TEXT</span>_<span class="param tag">LNK</span></span>) сектора анимируются синхронно со&nbsp;счётчиком, в&nbsp;противном случае последовательно.</li>
+											<li>При&nbsp;наличии в&nbsp;контейнере счётчика (<span class="param tag">COUNTER</span>) сектора анимируются синхронно со&nbsp;счётчиком, в&nbsp;противном случае последовательно.</li>
 										</ul>
 									</td>
 								</tr>
