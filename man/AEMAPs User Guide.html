@@ -404,7 +404,12 @@
 				</li>
 				<ol>
 					<li>В&nbsp;случае, если анимация не&nbsp;связана с&nbsp;геометрией, слой может быть растровым. В&nbsp;противном случае слой должен представлять из&nbsp;себя шейп, определяющий контуры объекта, или&nbsp;группу.</li>
-					<li>Внутри группы (если анимация объекта связана с&nbsp;геометрией) должен присутствовать как&nbsp;минимум один базовый шейповый слой с&nbsp;тегом <span class="param tag r">SUB</span>, определяющий контуры объекта.</li>
+					<li>
+						Внутри группы (если анимация объекта связана с&nbsp;геометрией) должен присутствовать как&nbsp;минимум один базовый шейповый слой с&nbsp;тегом <span class="param tag r">SUB</span>, определяющий контуры объекта. (Примечание:&nbsp;<a class="cut" href="#subfill"></a>.)
+						<div><a name="subfill"></a>
+							Для&nbsp;корректного расчёта геометрии рекомендуется использовать шейпы с&nbsp;заливкой <span class="param spick">Fill</span>. (<a href="#import">см.&nbsp;п.4.1</a>.)
+						</div>
+					</li>
 					<li>
 						В&nbsp;случае сложной геометрии все слои в&nbsp;группе, влияющие на&nbsp;контур, должны иметь тег <span class="param tag">SUB</span> и,&nbsp;желательно, быть пронумерованы с&nbsp;помощью <span class="param opt">VAR</span>. (Примечание:&nbsp;<a class="cut" href="#subsort"></a>.)
 						<div><a name="subsort"></a>
@@ -616,7 +621,10 @@
 							<td>
 								<ol>
 									<li>Слой может быть растровым. Специальный шейповый <span class="param tag">OVER</span> со&nbsp;стрелкой (<a href="#example">см.&nbsp;п.0.4.5</a>) поддерживает плоское вращение камеры и&nbsp;анимации любых объектов под&nbsp;ним. Слой не&nbsp;должен быть группой.</li>
-									<li><span class="param tag">OVER</span> может располагаться на&nbsp;любом уровне вложенности. Камера анимируется относительно фактического момента его&nbsp;начала. (Примечания:&nbsp;<a class="cut" href="#oversort"></a>.)</li>
+									<li>
+										<span class="param tag">OVER</span> может располагаться на&nbsp;любом уровне вложенности. Камера анимируется относительно фактического момента его&nbsp;начала. (Примечания:&nbsp;<a class="cut" href="#oversort"></a>.)
+										<p class="warn">При&nbsp;наличии в&nbsp;проекте группы со&nbsp;знаковым автотаймингом все <span class="param tag">OVER</span> должны располагаться выше&nbsp;таковой в&nbsp;стеке слоев.</p>
+									</li>
 								</ol>
 							</td>
 						</tr>
@@ -739,7 +747,9 @@
 									</tr>
 								</table></div>
 							</li>
+							<li>Используйте шейпы с&nbsp;заливкой <span class="param spick">Fill</span> для&nbsp;объектов с&nbsp;площадной геометрией. В&nbsp;режиме <span class="param pick">Composition - Retain Layer Sizes</span> шейпы&nbsp;PS с&nbsp;заливкой и&nbsp;без&nbsp;неё импортируются в&nbsp;AE по-разному.</li>
 							<li>After&nbsp;Effects не&nbsp;импортирует стили <span class="param spick">Layer Styles</span> для&nbsp;групп Photoshop. Для&nbsp;решения этой проблемы можно создать сервисный слой <span class="param tag">_style</span> внутри&nbsp;группы с&nbsp;копией её&nbsp;стилей. При&nbsp;копировании стилей в&nbsp;Photoshop параметры <span class="param spick">Layer Styles/Blending Options</span> не&nbsp;переносятся, их&nbsp;следует перенастроить вручную.</li>
+							<li>After&nbsp;Effects корректно импортирует множественные стили <span class="param spick">Layer Styles</span> из&nbsp;Photoshop, но&nbsp;не&nbsp;отображает их&nbsp;в&nbsp;свойствах слоя.</li>
 						</ul>
 					<!-- </div> -->
 				</li>

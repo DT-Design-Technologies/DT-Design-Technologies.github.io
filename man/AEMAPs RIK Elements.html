@@ -16,7 +16,7 @@
 <!-- --------------------------------------------------------------------------------------------------------------- -->
 <table>
 <!-- hdr -->
-<div id="version">Оформление РИК<br/>актуальность 01.2024</div>
+<div id="version">Оформление РИК<br/>актуальность 09.2024</div>
 <!-- --------------------------------------------------------------------------------------------------------------- -->
 <!-- --------------------------------------------------------------------------------------------------------------- -->
 	<tr>
@@ -32,6 +32,7 @@
 		<td></td>
 		<td colspan="2">
 			<ol style="counter-reset: list1 3;"><ol>
+<!-- --------------------------------------------------------------------------------------------------------------- -->
 				<li><a name="regular"></a>
 					<h4>Типовые элементы</h4>
 					<ol style="--pw: 75px; --pw2: 110px; --tm: 1px;">
@@ -403,7 +404,7 @@
 												<p></p>
 											</li>
 											<li>Поддерживает корректировку направления анимации. (Подробнее:&nbsp;<a class="cut" href="#bar"></a>.)</li>
-											<li>Поддерживает анимацию счётчика и указателя. (Подробнее:&nbsp;<a class="cut" href="#scounter"></a>.)</li>
+											<li>Поддерживает анимацию счётчика и указателя. (Подробнее:&nbsp;<a class="cut" href="#bcounter"></a>.)</li>
 											<li>Может находиться внутри <span class="param tag a">ITEM</span> (Например, если&nbsp;под&nbsp;столбиком нужно разместить статичную подложку).</li>
 										</ul>
 									</td>
@@ -421,7 +422,7 @@
 								<tr>
 									<td></td>
 									<td colspan="2">
-										<div><a name="scounter"></a>
+										<div><a name="bcounter"></a>
 											<ul>
 												<li>
 													Внутренний элемент с&nbsp;тегом <span class="param tag a">COUNTER</span> (при&nbsp;наличии) интерпретируется и&nbsp;анимируется как&nbsp;счётчик.
@@ -487,14 +488,14 @@
 												<p class="warn-cmt">Учитывается только первый шейп, можно маскировать круг другими фигурами.</p>
 												<p></p>
 											</li>
-											<li>Поддерживает анимацию счётчика. (Подробнее:&nbsp;<a class="cut" href="#ccounter"></a>.)</li>
+											<li>Поддерживает анимацию счётчика. (Подробнее:&nbsp;<a class="cut" href="#pcounter"></a>.)</li>
 										</ul>
 									</td>
 								</tr>
 								<tr>
 									<td></td>
 									<td colspan="2">
-										<div><a name="ccounter"></a>
+										<div><a name="pcounter"></a>
 											Внутренний элемент с&nbsp;тегом <span class="param tag a">COUNTER</span> (при&nbsp;наличии)<!-- , у&nbsp;которого указано предопределённое значение <span class="param tag">LNK</span> для&nbsp;тега идентификации <span class="param opt">VAR</span>, --> интерпретируется и&nbsp;анимируется как&nbsp;счётчик<!--  (<span class="param sopt"><span class="param tag">TEXT</span>_<span>LNK</span></span>) -->.
 											<!-- Текст должен содержать только цифры, точность счётчика определяется форматом указанного числа (<span class="param sopt"><span>25</span></span>, <span class="param sopt"><span>25.0</span></span>, <span class="param sopt"><span>0.25</span></span>). -->
 											<!-- <p class="warn">Разделителем целой и&nbsp;дробной части значений является точка!</p> -->
@@ -586,15 +587,36 @@
 												<p class="warn-cmt">Учитывается только первый шейп, угловые маски игнорируются.</p>
 												<p></p>
 											</li>
-											<li>Диапазон анимации (величина сектора) определяется числовым значением. (Подробнее:&nbsp;<a class="cut" href="#cvalue"></a>.)</li>
+											<li>Поддерживает анимацию счётчика. (Подробнее:&nbsp;<a class="cut" href="#scounter"></a>.)</li>
 										</ul>
 									</td>
 								</tr>
 								<tr>
 									<td></td>
 									<td colspan="2">
-										<div><a name="cvalue"></a>
-											Истинное значение в&nbsp;процентах <span class="param pick">0-100</span> необходимо указать в&nbsp;теге идентификации <span class="param opt">VAR</span> после знака равенства (<span class="param sopt"><span class="param tag">SECTOR</span>_1<span>=70</span></span>).
+										<div><a name="scounter"></a>
+											Внутренний элемент с&nbsp;тегом <span class="param tag a">COUNTER</span> (при&nbsp;наличии) интерпретируется и&nbsp;анимируется как&nbsp;счётчик.
+											<!-- Текст должен содержать только цифры, точность счётчика определяется форматом указанного числа (<span class="param sopt"><span>25</span></span>, <span class="param sopt"><span>25.0</span></span>, <span class="param sopt"><span>0.25</span></span>). -->
+											<!-- <p class="warn">Разделителем целой и&nbsp;дробной части значений является точка!</p> -->
+											<!-- <p class="warn-cmt">При&nbsp;необходимости указать единицы, используйте дополнительный слой.</p> -->
+											<p class="warn-cmt">Счётчик должен находиться на&nbsp;первом уровне вложенности и&nbsp;не&nbsp;может быть группой.</p>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td></td>
+									<td>
+										<ul>
+											<li>Диапазон анимации (величина сектора) определяется числовым значением. (Подробнее:&nbsp;<a class="cut" href="#svalue"></a>.)</li>
+										</ul>
+									</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td colspan="2">
+										<div><a name="svalue"></a>
+											Истинное значение в&nbsp;процентах <span class="param pick">0-100</span> следует указать в&nbsp;теге идентификации <span class="param opt">VAR</span> после знака равенства (<span class="param sopt"><span class="param tag">SECTOR</span>_1<span>=70</span></span>). При&nbsp;отсутствии этого параметра значение будет взято из&nbsp;счётчика.
 											<p class="warn">Разделителем целой и&nbsp;дробной части значений является точка!</p>
 										</div>
 									</td>
@@ -608,7 +630,7 @@
 												Сектора в&nbsp;составе круговой диаграммы обрабатываются групповым образом с&nbsp;помощью внешнего контейнера <span class="param tag a">BUBBLE</span>.
 												<p class="warn-cmt">Для&nbsp;визуализации диаграмм с&nbsp;суммой значений более 100% используйте сектора с&nbsp;прогрессивным радиусом.</p>
 											</li>
-											<li>При&nbsp;наличии в&nbsp;контейнере счётчика (<span class="param tag">COUNTER</span>)<!--  (<span class="param sopt"><span class="param tag">TEXT</span>_<span class="param tag">LNK</span></span>) --> сектора анимируются синхронно со&nbsp;счётчиком, в&nbsp;противном случае последовательно.</li>
+											<li>При&nbsp;наличии в&nbsp;контейнере общего счётчика (<span class="param tag">COUNTER</span>)<!--  (<span class="param sopt"><span class="param tag">TEXT</span>_<span class="param tag">LNK</span></span>) --> сектора анимируются синхронно с&nbsp;ним, в&nbsp;противном случае последовательно.</li>
 										</ul>
 									</td>
 								</tr>
@@ -616,6 +638,66 @@
 						</li>
 					</ol>
 				</li>
+<!-- --------------------------------------------------------------------------------------------------------------- -->
+				<li><a name="special"></a>
+					<span class="mark"><h4>Экспериментальные теги.</h4></span>
+					<ol style="--pw: 75px; --pw2: 110px; --tm: 1px;">
+						<li>
+							<div><table>
+								<tr>
+									<td><span class="param tag r">MORPH</span>:</td>
+									<td><img alt="morph"/></td>
+									<td>
+										<p>Трансформируемый площадной элемент.</p>
+										<ul>
+											<li>
+												Требуется <a href="AEMAPs User Guide.html#struct">геометрия</a> (предполагается односвязная область).
+												<p class="warn-cmt">Учитывается только первый шейп.</p>
+												<p></p>
+											</li>
+											<li>
+												Трансформация осуществляется по&nbsp;набору опорных <span class="param tag A">SUB</span>.
+												<p class="warn-cmt">Стили оформления следует применять только к&nbsp;первому <span class="param tag A">SUB</span>, остальные будут отключены.</p>
+												<p></p>
+											</li>
+											<li>Поддерживает управление таймингом. (Подробнее:&nbsp;<a class="cut" href="#mtime"></a>.)</li>
+										</ul>
+									</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td colspan="2">
+										<div><a name="mtime"></a>
+											Длительность анимации в&nbsp;секундах можно указать в&nbsp;конце <span class="param opt">VAR</span> после знака равенства (<span class="param sopt"><span class="param tag">MORPH</span>_01<span>=5</span></span>). В&nbsp;отсутствие этого параметра динамика трансформации определяется таймингами <span class="param opt">Ts/Te</span>.
+											<p class="warn-cmt">В&nbsp;отличие от&nbsp;<span class="param tag">TRK</span>, указанная длительность учитывает время проявления.</p>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td></td>
+									<td>
+										<ul>
+											<li>
+												Поддерживает упрощённый режим без&nbsp;вычислений. (Подробнее:&nbsp;<a class="cut" href="#moff"></a>.)
+												<p class="warn-cmt">В&nbsp;зависимости от&nbsp;размера и&nbsp;количества шейпов обработка в&nbsp;обычном режиме может занять длительное время.</p>
+											</li>
+										</ul>
+									</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td colspan="2">
+										<div><a name="moff"></a>
+											В&nbsp;ряде случаев (одинаковое количество узлов и&nbsp;направление обхода в&nbsp;шейпе, изменение, близкое к&nbsp;параллельному переносу) можно воспользоваться режимом прямого копирования без&nbsp;вычислений. Для&nbsp;этого укажите предопределённое значение <span class="param tag">OFF</span> для&nbsp;тега идентификации <span class="param opt">VAR</span>. (<span class="param sopt"><span class="param tag">MORPH</span>_<span>OFF</span></span> или&nbsp;<span class="param sopt"><span class="param tag">MORPH</span>_01<span>-OFF</span></span>).
+										</div>
+									</td>
+								</tr>
+							</table></div>
+						</li>
+					</ol>
+				</li>
+<!-- --------------------------------------------------------------------------------------------------------------- -->
 			</ol></ol>
 		</td>
 	</tr>
