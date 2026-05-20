@@ -16,7 +16,7 @@
 <!-- --------------------------------------------------------------------------------------------------------------- -->
 <table>
 <!-- hdr -->
-<div id="version">Оформление РИК<br/>актуальность 01.2026</div>
+<div id="version">Оформление РИК<br/>актуальность 05.2026</div>
 <!-- --------------------------------------------------------------------------------------------------------------- -->
 <!-- --------------------------------------------------------------------------------------------------------------- -->
 	<tr>
@@ -649,7 +649,7 @@
 							<div><table>
 								<tr>
 									<td><span class="param tag r">MORPH</span>:</td>
-									<td><img alt="morph"/></td>
+									<td><img alt="morph1"/></td>
 									<td>
 										<p>Трансформируемый площадной элемент.</p>
 										<ul>
@@ -672,7 +672,7 @@
 									<td colspan="2">
 										<div><a name="mtime"></a>
 											Длительность анимации в&nbsp;секундах можно указать в&nbsp;конце <span class="param opt">VAR</span> после знака равенства (<span class="param sopt"><span class="param tag">MORPH</span>_01<span>=5</span></span>). В&nbsp;отсутствие этого параметра динамика трансформации определяется таймингами <span class="param opt">Ts/Te</span>.
-											<p class="warn-cmt">В&nbsp;отличие от&nbsp;<span class="param tag">TRK</span>, указанная длительность учитывает время проявления.</p>
+											<p class="warn-cmt">В&nbsp;отличие от&nbsp;<span class="param tag">TRK</span>, указанная длительность включает время проявления. Для&nbsp;корректировки тайминга или&nbsp;добавления паузы используйте ключи <span class="param spick">Mask 1/Mask Path</span> на&nbsp;первом <span class="param tag">SUB</span>.</p>
 										</div>
 									</td>
 								</tr>
@@ -693,6 +693,34 @@
 									<td colspan="2">
 										<div><a name="moff"></a>
 											В&nbsp;ряде случаев (одинаковое количество узлов и&nbsp;направление обхода в&nbsp;шейпе, изменение, близкое к&nbsp;параллельному переносу) можно воспользоваться режимом прямого копирования без&nbsp;вычислений. Для&nbsp;этого укажите предопределённое значение <span class="param tag">OFF</span> для&nbsp;тега идентификации <span class="param opt">VAR</span>. (<span class="param sopt"><span class="param tag">MORPH</span>_<span>OFF</span></span> или&nbsp;<span class="param sopt"><span class="param tag">MORPH</span>_01<span>-OFF</span></span>).
+											<p class="warn-cmt">Анимация в&nbsp;упрощённом режиме проводится без&nbsp;сглаживаний!</p>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td><img alt="morph2"/></td>
+									<td>
+										<ul>
+											<li>
+												Поддерживает текстовую врезку с&nbsp;маскировкой контура. (Подробнее:&nbsp;<a class="cut" href="#mgap"></a>.)
+												<p class="warn-cmt">На&nbsp;текущий момент опция полноценно работает только в&nbsp;упрощённом режиме.</p>
+											</li>
+										</ul>
+									</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td colspan="2">
+										<div><a name="mgap"></a>
+											<ul>
+												<li>Первый внутренний элемент с&nbsp;тегом <span class="param tag">TEXT</span> будет перемещаться вместе с&nbsp;ближайшим узлом стартового контура (первый&nbsp;<span class="param tag A">SUB</span>).</li>
+												<p class="warn-cmt">Рекомендуется использовать центральную выключку и&nbsp;располагать врезку непосредственно над&nbsp;узлом. При&nbsp;преобразовании в&nbsp;редактируемый текст врезка может потерять центровку, потребуется ручная корректировка <span class="param pick">anchor point</span>.</p>
+												<li>Второй <span class="param tag">TEXT</span> (при&nbsp;наличии) смещает конечную точку перемещения врезки к&nbsp;ближайшему узлу финального контура (второй&nbsp;<span class="param tag A">SUB</span>).</li>
+												<p class="warn-cmt">На&nbsp;данный момент опция реализована только для&nbsp;одной трансформации. Остальные <span class="param tag">TEXT</span> игнорируются.</p>
+												<li>При&nbsp;наличии активного стиля <span class="param spick">Layer Styles/Stroke</span> на&nbsp;стартовом контуре он&nbsp;заменяется отдельным шейповым контуром с&nbsp;маскировкой и&nbsp;пунктиром.</li>
+												<p class="warn-cmt">Пунктир можно настроить или&nbsp;отключить в&nbsp;содержимом <span class="param spick">Stroke 1/Dashes</span> слоя <span class="param spick">stroke</span>.</p>
+											</ul>
 										</div>
 									</td>
 								</tr>

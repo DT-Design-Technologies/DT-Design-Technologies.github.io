@@ -75,7 +75,7 @@
 					При необходимости постоянного доступа к&nbsp;скрипту, его можно внедрить в&nbsp;интерфейс&nbsp;AE. (Подробнее:&nbsp;<a class="cut" href="#uipanel"></a>.)
 					<div><a name="uipanel"></a>
 						<ul>
-							<li>Скопируйте файл <span class="param spick">AEMAPs.jsxbin</span> и&nbsp;папку <span class="param spick">handlers</span> в&nbsp;папку <span class="param spick">ScriptUI Panels</span>, которую вы можете найти в&nbsp;каталоге с&nbsp;установленным After&nbsp;Effects (например, <span class="param spick">c:\Program Files\Adobe\Adobe After Effects CC 2018\Support Files\Scripts\ScriptUI Panels</span> для&nbsp;Windows или&nbsp;<span class="param spick">/Applications/Adobe After Effects CC 2018/Scripts/ScriptUI Panels</span> для&nbsp;Mac&nbsp;OS).</li>
+							<li>Скопируйте файл <span class="param spick">AEMAPs.jsxbin</span> и&nbsp;папку <span class="param spick">handlers</span> в&nbsp;папку <span class="param spick">ScriptUI Panels</span>, которую вы можете найти в&nbsp;каталоге с&nbsp;установленным After&nbsp;Effects (например, <span class="param spick">c:\Program Files\Adobe\Adobe After Effects 2023\Support Files\Scripts\ScriptUI Panels</span> для&nbsp;Windows или&nbsp;<span class="param spick">/Applications/Adobe After Effects 2023/Scripts/ScriptUI Panels</span> для&nbsp;Mac&nbsp;OS).</li>
 							<li>Перезапустите After&nbsp;Effects и&nbsp;откройте <span class="param pick">AEMAPs.jsxbin</span> через пункт меню <span class="param pick">Window</span>. Теперь <a href="" target=""><strong>AEMAPs&nbsp;|&nbsp;R5</strong></a> установлен как&nbsp;встроенная панель.</li>
 						</ul>
 						<p class="warn-cmt">В&nbsp;режиме встроенной панели некоторые статусные сообщения могут не&nbsp;отображаться. Все&nbsp;сообщения можно увидеть в&nbsp;стандартной панели <span class="param pick">Info</span>.</p>
@@ -83,13 +83,14 @@
 				</li>
 				<li>
 					Для&nbsp;корректной работы необходимы следующие настройки в&nbsp;After&nbsp;Effects:
-					<p class="warn">Иначе объекты могут дрейфовать или&nbsp;иметь неправильную скорость/направление анимации!</p>
+					<p class="warn">Иначе объекты могут дрейфовать, иметь неправильную скорость/направление анимации, некорректно отображать маски! (<a href="#import">см.&nbsp;п.4.1</a>.)</p>
 					<div><table>
 					<!-- <div style="width: 100%;"><table style="width: 100%;"> -->
 						<tr>
 							<td><img alt="spatial"/></td>
 							<td><img alt="import"/></td>
 							<td><img alt="import_bug"/></td>
+							<td><img alt="scripts"/></td>
 						</tr>
 						<!-- <tr>
 							<td colspan="2"></td>
@@ -740,7 +741,7 @@
 						<span>Особенности импорта проекта в&nbsp;After&nbsp;Effects:</span>
 						<ul>
 							<li>Очищайте закладку <span class="param pick">Paths</span> в&nbsp;Photoshop от&nbsp;лишних элементов! Это&nbsp;значительно разгрузит проект и&nbsp;позволит избежать ряда ошибок импорта.</li>
-							<li>After&nbsp;Effects запоминает последние настройки импорта. В&nbsp;связи с&nbsp;этим возможна ситуация, когда <span class="param pick">.psd</span> импортируется с&nbsp;флагом <span class="param pick">Merge layer Styles into Footage</span>, что&nbsp;приводит к&nbsp;неправильному расчёту геометрии и&nbsp;некорректной анимации (вылет из&nbsp;левого верхнего угла). Единственным решением является вручную импортировать в&nbsp;After&nbsp;Effects произвольный <span class="param pick">.psd</span> с&nbsp;необходимым флагом <span class="param pick">Editable Layer Styles</span> и&nbsp;повторить сборку.</li>
+							<li>After&nbsp;Effects запоминает последние настройки импорта. В&nbsp;связи с&nbsp;этим возможна ситуация, когда <span class="param pick">.psd</span> импортируется с&nbsp;флагом <span class="param pick">Merge layer Styles into Footage</span>, что&nbsp;приводит к&nbsp;неправильному расчёту геометрии и&nbsp;некорректной анимации (вылет из&nbsp;левого верхнего угла), либо&nbsp;к&nbsp;отключению масок. Единственным решением является вручную импортировать в&nbsp;After&nbsp;Effects произвольный <span class="param pick">.psd</span> с&nbsp;необходимым флагом <span class="param pick">Editable Layer Styles</span> и&nbsp;повторить сборку.</li>
 							<li>Режимы наложения во&nbsp;вложенных композициях&nbsp;AE сохраняются (работают сквозным образом), если&nbsp;включить флаг <span class="param pick">Collapse Transformations</span> <img alt="collapse"/> на&nbsp;слое&#8209;контейнере.</li>
 							<li>
 								<p>При&nbsp;включённом <span class="param pick">Collapse Transformations</span> на&nbsp;слое&#8209;контейнере и&nbsp;наличии активных стилей <span class="param spick">Layer Styles</span> на&nbsp;слоях во&nbsp;вложенной композиции некорректно транслируются следующие свойства:</p>
@@ -757,7 +758,7 @@
 									</tr>
 								</table></div>
 							</li>
-							<li>Используйте шейпы с&nbsp;заливкой <span class="param spick">Fill</span> без&nbsp;контура <span class="param spick">Stroke</span> для&nbsp;объектов с&nbsp;площадной геометрией. В&nbsp;режиме <span class="param pick">Composition - Retain Layer Sizes</span> шейпы&nbsp;PS с&nbsp;контуром или&nbsp;без&nbsp;заливки импортируются в&nbsp;AE некорректно.<!-- при импорте растрируются, что приводит --></li>
+							<li>Используйте шейпы с&nbsp;заливкой <span class="param spick">Fill</span> без&nbsp;контура <span class="param spick">Stroke</span> для&nbsp;объектов с&nbsp;площадной геометрией. В&nbsp;режиме <span class="param pick">Composition - Retain Layer Sizes</span> шейпы&nbsp;PS с&nbsp;контуром или&nbsp;без&nbsp;заливки импортируются в&nbsp;AE некорректно, с&nbsp;отключенными масками.<!-- при импорте растрируются, что приводит --></li>
 							<li>After&nbsp;Effects не&nbsp;импортирует стили <span class="param spick">Layer Styles</span> для&nbsp;групп Photoshop. Для&nbsp;решения этой проблемы можно создать сервисный слой <span class="param tag">_style</span> внутри&nbsp;группы с&nbsp;копией её&nbsp;стилей. При&nbsp;копировании стилей в&nbsp;Photoshop параметры <span class="param spick">Layer Styles/Blending Options</span> не&nbsp;переносятся, их&nbsp;следует перенастроить вручную.</li>
 							<li>After&nbsp;Effects корректно импортирует множественные стили <span class="param spick">Layer Styles</span> из&nbsp;Photoshop, но&nbsp;не&nbsp;отображает их&nbsp;в&nbsp;свойствах слоя.</li>
 						</ul>
