@@ -18,4 +18,4 @@
 
 ## aeDaemon
 
-*Under construction*
+[aeDaemon Developer Guide](man/aeDaemon%20Developer%20Guide.html)
